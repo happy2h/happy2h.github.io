@@ -17,15 +17,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="无模型自适应ILC原理及代码实现 这里学习的是很老的一篇论文《基于无模型自适应控制的反馈-前馈迭代学习控制系统收敛性研究》，作者是晏静文和侯忠生，大家有兴趣可以找来看看。这里主要介绍的无模型自适应的控制率的matlab代码仿真实现和结果分析。 首先数值给出了问题定义，给出m维输入q维输入的非线性系统： $$y_{n}(k+1)&#x3D;f(u_{n}(k),y_{n})(k),\xi(k),k)$$ 两个">
+  <meta name="description" content="控制理论无模型自适应迭代学习方法的原理和matlab仿真。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my first blog">
+<meta property="og:title" content="无模型自适应ILC原理及代码实现">
 <meta property="og:url" content="http://example.com/2021/02/05/my-first-blog/index.html">
 <meta property="og:site_name" content="Nickxie&#39;s Blog">
-<meta property="og:description" content="无模型自适应ILC原理及代码实现 这里学习的是很老的一篇论文《基于无模型自适应控制的反馈-前馈迭代学习控制系统收敛性研究》，作者是晏静文和侯忠生，大家有兴趣可以找来看看。这里主要介绍的无模型自适应的控制率的matlab代码仿真实现和结果分析。 首先数值给出了问题定义，给出m维输入q维输入的非线性系统： $$y_{n}(k+1)&#x3D;f(u_{n}(k),y_{n})(k),\xi(k),k)$$ 两个">
+<meta property="og:description" content="控制理论无模型自适应迭代学习方法的原理和matlab仿真。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center">
@@ -35,8 +35,9 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2021-02-05T14:37:53.000Z">
-<meta property="article:modified_time" content="2021-02-05T14:42:57.132Z">
+<meta property="article:modified_time" content="2021-02-06T05:12:40.402Z">
 <meta property="article:author" content="Nickxie">
+<meta property="article:tag" content="matlab">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center">
 
@@ -53,7 +54,7 @@
   };
 </script>
 
-  <title>my first blog | Nickxie's Blog</title>
+  <title>无模型自适应ILC原理及代码实现 | Nickxie's Blog</title>
   
 
 
@@ -181,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          my first blog
+          无模型自适应ILC原理及代码实现
         </h1>
 
         <div class="post-meta">
@@ -190,12 +191,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-05 22:37:53 / 修改时间：22:42:57" itemprop="dateCreated datePublished" datetime="2021-02-05T22:37:53+08:00">2021-02-05</time>
+              <time title="创建时间：2021-02-05 22:37:53" itemprop="dateCreated datePublished" datetime="2021-02-05T22:37:53+08:00">2021-02-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-06 13:12:40" itemprop="dateModified" datetime="2021-02-06T13:12:40+08:00">2021-02-06</time>
+              </span>
 
           
+            <div class="post-description">控制理论无模型自适应迭代学习方法的原理和matlab仿真。</div>
 
         </div>
       </header>
@@ -207,17 +215,15 @@
 
       
         <h2 id="无模型自适应ILC原理及代码实现"><a href="#无模型自适应ILC原理及代码实现" class="headerlink" title="无模型自适应ILC原理及代码实现"></a>无模型自适应ILC原理及代码实现</h2><p> 这里学习的是很老的一篇论文《基于无模型自适应控制的反馈-前馈迭代学习控制系统收敛性研究》，作者是晏静文和侯忠生，大家有兴趣可以找来看看。这里主要介绍的无模型自适应的控制率的matlab代码仿真实现和结果分析。<br> 首先数值给出了问题定义，给出m维输入q维输入的非线性系统：</p>
-<p>$$<br>y_{n}(k+1)=f(u_{n}(k),y_{n})(k),\xi(k),k)<br>$$</p>
-<p>两个假设是为了收敛性证明提出的，这里不详细讲（其实收敛性推导我也没推），然后对于该系统设计了前馈和反馈控制律如下：</p>
-<p>$$<br>u_{n}(k)=u^{f}<em>{n}(k)+u^{b}</em>{k}(k)<br>$$</p>
-<p>$$<br>u^{f}<em>{n}(k)=u^{f}</em>{n-1}(k)+\beta e_{n-1}(k+1)<br>$$</p>
-<p>$$<br>u^{b}<em>{n}(k)=u^{b}</em>{n}(k-1)+\frac{\rho <em>\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|^{2}}</em>[y_{d}(k+1)-y_{n}(k)]<br>$$</p>
-<p>$$<br>\hat{\phi_{n}}(k)=\hat{\phi_{n}}(k-1)+\frac{\eta \Delta u^{b}<em>{k-1} }{\mu +|\Delta u^{b}</em>{k-1}|^2}*[\Delta y_{n}(k)-\hat\phi_{n}(k-1)\Delta u^{b}_{n}(k-1)]<br>$$</p>
-<p>$$<br>\hat\phi_{n}(k)=\hat \phi(1)， 若\hat\phi_{n}(k)\leq\epsilon 或|\Delta u^{b}_{n}(k-1)\leq\epsilon|<br>$$</p>
-<p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：<br><img src="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center" alt="在这里插入图片描述"><br>期望曲线：<br><img src="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center" alt="在这里插入图片描述"><br>基于控制律和系统编写matlab代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">% 期望轨迹</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">	<span class="keyword">if</span> k &lt; <span class="number">250</span></span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*(-<span class="number">1</span>).^(round(k/<span class="number">100</span>));</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*sin((k*pi)/<span class="number">100</span>) + <span class="number">0.3</span>*cos((k*pi)/<span class="number">50</span>);</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 参数设置</span><br><span class="line">epsilon = <span class="number">0.01</span>;</span><br><span class="line">eta = <span class="number">1</span>;</span><br><span class="line">rho = <span class="number">0.2</span>;</span><br><span class="line">lamda = <span class="number">1</span>;</span><br><span class="line">mu = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">% 控制过程</span><br><span class="line">i_n = <span class="number">60</span>;  %迭代次数</span><br><span class="line">y(<span class="number">1</span>:i_n,<span class="number">1</span>:<span class="number">500</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">	<span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			phi(i,k) = <span class="number">0.4</span>;</span><br><span class="line">		elseif k == <span class="number">2</span></span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)/(mu + norm(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)^<span class="number">2</span>))*(y(i,k) - <span class="number">0</span> - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>));</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))/(mu + norm(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))^<span class="number">2</span>))*(y(i,k) - y(i,k-<span class="number">1</span>) - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> i == <span class="number">1</span></span><br><span class="line">			uf(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			uf(i,k) = uf(i-<span class="number">1</span>,k) + <span class="number">0.4</span>*e(i-<span class="number">1</span>,k+<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			ub(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			ub(i,k) = ub(i,k-<span class="number">1</span>) + (rho*phi(i,k)/(lamda + norm(phi(i,k))^<span class="number">2</span>))*(yd(k+<span class="number">1</span>) - y(i,k));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k&gt;<span class="number">2</span> &amp;&amp; (phi(i,k) &lt;= epsilon || (abs(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)) &lt;= epsilon))</span><br><span class="line">			phi(i,k) = phi(i,<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		u(i,k) = uf(i,k) + ub(i,k);</span><br><span class="line">		%系统函数</span><br><span class="line">		<span class="keyword">if</span> k &lt;<span class="number">250</span> </span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + (u(i,k) + <span class="number">0.1</span>*round(k/<span class="number">500</span>)*sin(y(i,k)))^<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)^<span class="number">3</span>/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + u(i,k)^<span class="number">3</span>;</span><br><span class="line">		end</span><br><span class="line">		e(i,k+<span class="number">1</span>) = yd(k+<span class="number">1</span>) - y(i,k+<span class="number">1</span>);</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">%误差</span><br><span class="line"><span class="keyword">for</span> i =<span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">e_min(i) = max(abs(e(i,:)));</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">figure(<span class="number">1</span>) </span><br><span class="line">plot(yd,<span class="string">&#x27;r&#x27;</span>); hold on;</span><br><span class="line">plot(y(i_n,:),<span class="string">&#x27;b&#x27;</span>); title(<span class="string">&#x27;µü´ú10´Î&#x27;</span>);</span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">plot(e_min);title(<span class="string">&#x27;error of time k&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>50次迭代：<br><img src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>100次迭代：<br><img src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center"><br>100次迭代 最大误差和最下误差收敛结果：<br><img src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结束。</p>
+<script type="math/tex; mode=display">
+y_{n}(k+1)=f(u_{n}(k),y_{n})(k),\xi(k),k)</script><p>两个假设是为了收敛性证明提出的，这里不详细讲（其实收敛性推导我也没推），然后对于该系统设计了前馈和反馈控制律如下：</p>
+<script type="math/tex; mode=display">
+u_{n}(k)=u^{f}_{n}(k)+u^{b}_{k}(k)</script><script type="math/tex; mode=display">
+u^{f}_{n}(k)=u^{f}_{n-1}(k)+\beta e_{n-1}(k+1)</script><script type="math/tex; mode=display">
+u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|^{2}}*[y_{d}(k+1)-y_{n}(k)]</script><script type="math/tex; mode=display">
+\hat{\phi_{n}}(k)=\hat{\phi_{n}}(k-1)+\frac{\eta \Delta u^{b}_{k-1} }{\mu +|\Delta u^{b}_{k-1}|^2}*[\Delta y_{n}(k)-\hat\phi_{n}(k-1)\Delta u^{b}_{n}(k-1)]</script><script type="math/tex; mode=display">
+\hat\phi_{n}(k)=\hat \phi(1)， 若\hat\phi_{n}(k)\leq\epsilon 或|\Delta u^{b}_{n}(k-1)\leq\epsilon|</script><p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：<br><img src="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center" alt="在这里插入图片描述"><br>期望曲线：<br><img src="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center" alt="在这里插入图片描述"><br>基于控制律和系统编写matlab代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">% 期望轨迹</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">	<span class="keyword">if</span> k &lt; <span class="number">250</span></span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*(-<span class="number">1</span>).^(round(k/<span class="number">100</span>));</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*sin((k*pi)/<span class="number">100</span>) + <span class="number">0.3</span>*cos((k*pi)/<span class="number">50</span>);</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 参数设置</span><br><span class="line">epsilon = <span class="number">0.01</span>;</span><br><span class="line">eta = <span class="number">1</span>;</span><br><span class="line">rho = <span class="number">0.2</span>;</span><br><span class="line">lamda = <span class="number">1</span>;</span><br><span class="line">mu = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">% 控制过程</span><br><span class="line">i_n = <span class="number">60</span>;  %迭代次数</span><br><span class="line">y(<span class="number">1</span>:i_n,<span class="number">1</span>:<span class="number">500</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">	<span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			phi(i,k) = <span class="number">0.4</span>;</span><br><span class="line">		elseif k == <span class="number">2</span></span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)/(mu + norm(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)^<span class="number">2</span>))*(y(i,k) - <span class="number">0</span> - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>));</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))/(mu + norm(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))^<span class="number">2</span>))*(y(i,k) - y(i,k-<span class="number">1</span>) - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> i == <span class="number">1</span></span><br><span class="line">			uf(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			uf(i,k) = uf(i-<span class="number">1</span>,k) + <span class="number">0.4</span>*e(i-<span class="number">1</span>,k+<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			ub(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			ub(i,k) = ub(i,k-<span class="number">1</span>) + (rho*phi(i,k)/(lamda + norm(phi(i,k))^<span class="number">2</span>))*(yd(k+<span class="number">1</span>) - y(i,k));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k&gt;<span class="number">2</span> &amp;&amp; (phi(i,k) &lt;= epsilon || (abs(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)) &lt;= epsilon))</span><br><span class="line">			phi(i,k) = phi(i,<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		u(i,k) = uf(i,k) + ub(i,k);</span><br><span class="line">		%系统函数</span><br><span class="line">		<span class="keyword">if</span> k &lt;<span class="number">250</span> </span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + (u(i,k) + <span class="number">0.1</span>*round(k/<span class="number">500</span>)*sin(y(i,k)))^<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)^<span class="number">3</span>/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + u(i,k)^<span class="number">3</span>;</span><br><span class="line">		end</span><br><span class="line">		e(i,k+<span class="number">1</span>) = yd(k+<span class="number">1</span>) - y(i,k+<span class="number">1</span>);</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">%误差</span><br><span class="line"><span class="keyword">for</span> i =<span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">e_min(i) = max(abs(e(i,:)));</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">figure(<span class="number">1</span>) </span><br><span class="line">plot(yd,<span class="string">&#x27;r&#x27;</span>); hold on;</span><br><span class="line">plot(y(i_n,:),<span class="string">&#x27;b&#x27;</span>); title(<span class="string">&#x27;µü´ú10´Î&#x27;</span>);</span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">plot(e_min);title(<span class="string">&#x27;error of time k&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>50次迭代：<br><img src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>100次迭代：<br><img src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>100次迭代 最大误差和最下误差收敛结果：<br><img src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结束。</p>
 
     </div>
 
@@ -226,6 +232,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/matlab/" rel="tag"># matlab</a>
+          </div>
 
         
 
@@ -305,6 +314,10 @@
           <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -387,6 +400,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
