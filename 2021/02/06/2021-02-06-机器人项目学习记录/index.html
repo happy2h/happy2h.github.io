@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="机器人控制项目的启动流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021-02-06-机器人项目学习记录">
+<meta property="og:url" content="http://example.com/2021/02/06/2021-02-06-%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Nickxie&#39;s Blog">
+<meta property="og:description" content="机器人控制项目的启动流程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12935535-cd785952386842ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12935535-fc5f73c6a5d9a8ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12935535-1f5bfc8141687f4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12935535-3287edbadac392f3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="article:published_time" content="2021-02-06T05:36:06.000Z">
+<meta property="article:modified_time" content="2021-02-06T05:41:07.972Z">
+<meta property="article:author" content="Nickxie">
+<meta property="article:tag" content="LabVIEW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12935535-cd785952386842ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024">
+
+<link rel="canonical" href="http://example.com/2021/02/06/2021-02-06-%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2021-02-06-机器人项目学习记录 | Nickxie's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Nickxie's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/2021-02-06-%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nickxie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nickxie's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2021-02-06-机器人项目学习记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-06 13:36:06 / 修改时间：13:41:07" itemprop="dateCreated datePublished" datetime="2021-02-06T13:36:06+08:00">2021-02-06</time>
+            </span>
+
+          
+            <div class="post-description">机器人控制项目的启动流程</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ol>
+<li>首先讲一下项目启动的过程，项目的目录如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/12935535-cd785952386842ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1024" alt="项目目录.jpg"></li>
+<li>启动USB7635_DA.vi，启动界面如下，输出范围选择0~10v。<br><img src="https://upload-images.jianshu.io/upload_images/12935535-fc5f73c6a5d9a8ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="USB7635_DA.jpg"></li>
+<li>启动USB7660_指定通道采集.vi，界面如下，采集通道为13。<br><img src="https://upload-images.jianshu.io/upload_images/12935535-1f5bfc8141687f4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="USB7660指定通道采集.jpg"></li>
+<li>启动main.vi，期望轨迹选择theta_x = 0.2，theta_y = 0.1，theta_z = 0.1，频率fre = 0.05；初始化以后运行vi即可开始机器人的轨迹追踪。<br><img src="https://upload-images.jianshu.io/upload_images/12935535-3287edbadac392f3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="main.jpg"><br><strong>理论部分</strong><br>控制的逻辑是：将角度传感器采集到的角度转换为柔索长度，转换函数为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">%% 3自由度脚踝康复机器人机构仿真函数</span><br><span class="line">%l 返回柔索长度矩阵</span><br><span class="line">% theta_x%平台绕x轴旋转角度</span><br><span class="line">% theta_y%平台绕y轴旋转角度</span><br><span class="line">% theta_z%平台绕z轴旋转角度</span><br><span class="line"></span><br><span class="line">H&#x3D;[0 0 -477]&#39;;</span><br><span class="line">%% 定平台坐标点</span><br><span class="line">p1f&#x3D;[-187.5,89,0]&#39;; %p1f&#x3D;[89,187.5,0]&#39;;</span><br><span class="line">p2f&#x3D;[187.5,89,0]&#39;; %p2f&#x3D;[89,-187.5,0]&#39;;</span><br><span class="line">p3f&#x3D;[-172,50,-583]&#39;; %p3f&#x3D;[50,172,-583]&#39;;</span><br><span class="line">p4f&#x3D;[172,50,-583]&#39;; %p4f&#x3D;[50,-172,-583]&#39;;</span><br><span class="line">p5f&#x3D;[0,-74,-345]&#39;; %p5f&#x3D;[-74,0,-345]&#39;;</span><br><span class="line"></span><br><span class="line">%% 动平台坐标点</span><br><span class="line">p1m&#x3D;[-60,50,-106]&#39;; %p1m&#x3D;[50,60,-106]&#39;;</span><br><span class="line">p2m&#x3D;[60,50,-106]&#39;; %p2m&#x3D;[50,-60,-106]&#39;;</span><br><span class="line">p3m&#x3D;[-60,50,-106]&#39;; %p3m&#x3D;[50,60,-106]&#39;;</span><br><span class="line">p4m&#x3D;[60,50,-106]&#39;; %p4m&#x3D;[50,-60,-106]&#39;;</span><br><span class="line">p5m&#x3D;[0,-74,-106]&#39;; %p5m&#x3D;[-74,0,-106]&#39;;</span><br><span class="line"></span><br><span class="line">%% 旋转矩阵</span><br><span class="line">T_x&#x3D;[1 0 0;</span><br><span class="line">    0 cos(theta_x) -sin(theta_x);</span><br><span class="line">    0 sin(theta_x) cos(theta_x)];</span><br><span class="line">T_y&#x3D;[cos(theta_y) 0 sin(theta_y);</span><br><span class="line">    0 1 0;</span><br><span class="line">    -sin(theta_y) 0 cos(theta_y)];</span><br><span class="line">T_z&#x3D;[cos(theta_z) -sin(theta_z) 0;</span><br><span class="line">    sin(theta_z) cos(theta_z) 0;</span><br><span class="line">    0 0 1];</span><br><span class="line">T&#x3D;T_z*T_y*T_x;</span><br><span class="line"></span><br><span class="line">L(1:3,1)&#x3D;T*p1m+H-p1f;</span><br><span class="line">L(1:3,2)&#x3D;T*p2m+H-p2f;</span><br><span class="line">L(1:3,3)&#x3D;T*p3m+H-p3f;</span><br><span class="line">L(1:3,4)&#x3D;T*p4m+H-p4f;</span><br><span class="line">L(1:3,5)&#x3D;T*p5m+H-p5f;</span><br><span class="line"></span><br><span class="line">for i&#x3D;1:5</span><br><span class="line">    l(i)&#x3D;sqrt(L(1,i)^2+L(2,i)^2+L(3,i)^2);</span><br><span class="line">end</span><br><span class="line">l1&#x3D;(66-l(1)+598.0520)&#x2F;1000;%25.1227</span><br><span class="line">l2&#x3D;(66-l(2)+598.0520)&#x2F;1000;</span><br><span class="line">l3&#x3D;(46-l(3)+112)&#x2F;1000;%22.0110</span><br><span class="line">l4&#x3D;(46-l(4)+112)&#x2F;1000;</span><br><span class="line">l5&#x3D;(40-l(5)+238)&#x2F;1000;%21.8995</span><br><span class="line"></span><br><span class="line">%l1&#x3D;l(1)-598.0520;%25.1227</span><br><span class="line">%l2&#x3D;l(2)-598.0520;</span><br><span class="line">%l3&#x3D;l(3)-112;%22.0110</span><br><span class="line">%l4&#x3D;l(4)-112;</span><br><span class="line">%l5&#x3D;l(5)-238;%21.8995</span><br></pre></td></tr></table></figure>
+通过三个角度计算出5根气动肌肉的长度。这个长度的计算是采用期望角度计算出来的气动肌肉的期望长度，而实际的柔索长度是通过长度传感器计算出来的。得到实际长度和期望长度以后，计算期望轨迹的一阶导速度，二阶导加速度和实际轨迹的一阶导速度，得到5根肌肉的实际轨迹和期望轨迹以后使用控制算法得到控制律，控制律的算法为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">gama &#x3D; 0.5;</span><br><span class="line">c1 &#x3D; 2800;</span><br><span class="line">k1 &#x3D; 2800;</span><br><span class="line">e1  &#x3D; x - xd;</span><br><span class="line">de1 &#x3D; dx - dxd;</span><br><span class="line">alfa1 &#x3D; c1 * e1;</span><br><span class="line">e2 &#x3D; dx - dxd + alfa1;</span><br><span class="line"></span><br><span class="line">s &#x3D; k1 * e1 + e2;</span><br><span class="line">F1 &#x3D; gama * s(1);</span><br><span class="line">F2 &#x3D; gama * s(2);</span><br><span class="line">F3 &#x3D; gama * s(3);</span><br><span class="line">F4 &#x3D; gama * s(4);</span><br><span class="line">F5 &#x3D; gama * s(5);</span><br><span class="line"></span><br><span class="line">Fp&#x3D;[F1;F2;F3;F4;F5]&#39;;</span><br><span class="line">c1 &#x3D; 3800;</span><br><span class="line">k1 &#x3D; 3800;</span><br><span class="line">h &#x3D; 1.5;</span><br><span class="line">beta &#x3D; 1.5;</span><br><span class="line"></span><br><span class="line">e1 &#x3D; x - xd;</span><br><span class="line">de1 &#x3D; dx - dxd;</span><br><span class="line">e2 &#x3D; dx - dxd + c1 * e1;</span><br><span class="line">s &#x3D; k1 * e1 + e2;</span><br><span class="line">ut &#x3D; (-k1 * (e2 - c1 * e1) - f  - Fp + ddxd - c1 * de1 - h * (s + beta * sign(s))) .&#x2F; b;</span><br><span class="line">p1 &#x3D; ut(1);</span><br><span class="line">p2 &#x3D; ut(2);</span><br><span class="line">p3 &#x3D; ut(3);</span><br><span class="line">p4 &#x3D; ut(4);</span><br><span class="line">p5 &#x3D; ut(5)</span><br></pre></td></tr></table></figure>
+其中x为期望轨迹的数组，xd为实际轨迹的数组。f，b是通过实际轨迹和外部负载计算出的力和参数b。<br>计算出来控制律以后，在USB7635_DA来控制气动肌肉的输出。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LabVIEW/" rel="tag"># LabVIEW</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/05/my-first-blog/" rel="prev" title="无模型自适应ILC原理及代码实现">
+      <i class="fa fa-chevron-left"></i> 无模型自适应ILC原理及代码实现
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nickxie</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nickxie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
