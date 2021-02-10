@@ -12,5 +12,5 @@ Disallow: /vendors/
 Disallow: /fancybox/
 Disallow: /categories/
 
-Sitemap: https://happy2h.github.io/sitemap.xml
-Sitemap: https://happy2h.github.io/baidusitemap.xml
+Sitemap: https://edhyjmy.top/sitemap.xml
+Sitemap: https://edhyjmy.top/baidusitemap.xml
