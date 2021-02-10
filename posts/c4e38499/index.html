@@ -24,28 +24,23 @@
     var CONFIG = {"hostname":"happy2h.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"2IEBFWJP2S","apiKey":"5c819ae5799552c12afdc007c838ce18","indexName":"Search_service","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"fadeIn","sidebar":"fadeIn"}}};
   </script>
 
-  <meta name="description" content="控制理论无模型自适应迭代学习方法的原理和matlab仿真。">
+  <meta name="description" content="研一现代数字信号处理实验，使用虚拟机进行语音信号处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无模型自适应ILC原理及代码实现">
-<meta property="og:url" content="https://happy2h.github.io/2021/02/05/my-first-blog/index.html">
+<meta property="og:title" content="2020-02-07-现代数字信号处理实验">
+<meta property="og:url" content="https://happy2h.github.io/posts/c4e38499/index.html">
 <meta property="og:site_name" content="Nickxie&#39;s Blog">
-<meta property="og:description" content="控制理论无模型自适应迭代学习方法的原理和matlab仿真。">
+<meta property="og:description" content="研一现代数字信号处理实验，使用虚拟机进行语音信号处理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2021-02-05T14:37:53.000Z">
-<meta property="article:modified_time" content="2021-02-06T06:50:12.808Z">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/07/yNMwqO.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/02/07/yNMDde.png">
+<meta property="article:published_time" content="2021-02-07T08:43:33.000Z">
+<meta property="article:modified_time" content="2021-02-10T04:06:06.265Z">
 <meta property="article:author" content="Nickxie">
-<meta property="article:tag" content="matlab">
+<meta property="article:tag" content="教学实验">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/07/yNMwqO.png">
 
-<link rel="canonical" href="https://happy2h.github.io/2021/02/05/my-first-blog/">
+<link rel="canonical" href="https://happy2h.github.io/posts/c4e38499/">
 
 
 <script id="page-configurations">
@@ -58,7 +53,7 @@
   };
 </script>
 
-  <title>无模型自适应ILC原理及代码实现 | Nickxie's Blog</title>
+  <title>2020-02-07-现代数字信号处理实验 | Nickxie's Blog</title>
   
 
 
@@ -220,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happy2h.github.io/2021/02/05/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://happy2h.github.io/posts/c4e38499/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s3.ax1x.com/2021/02/06/yYlsCn.jpg">
@@ -233,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          无模型自适应ILC原理及代码实现
+          2020-02-07-现代数字信号处理实验
         </h1>
 
         <div class="post-meta">
@@ -243,14 +238,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-05 22:37:53" itemprop="dateCreated datePublished" datetime="2021-02-05T22:37:53+08:00">2021-02-05</time>
+              <time title="创建时间：2021-02-07 16:43:33" itemprop="dateCreated datePublished" datetime="2021-02-07T16:43:33+08:00">2021-02-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-06 14:50:12" itemprop="dateModified" datetime="2021-02-06T14:50:12+08:00">2021-02-06</time>
+                <time title="修改时间：2021-02-10 12:06:06" itemprop="dateModified" datetime="2021-02-10T12:06:06+08:00">2021-02-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,12 +253,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器人项目学习</span></a>
+                  <a href="/categories/%E6%95%99%E5%AD%A6%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教学课程</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/02/05/my-first-blog/" class="post-meta-item leancloud_visitors" data-flag-title="无模型自适应ILC原理及代码实现" title="阅读次数">
+            <span id="/posts/c4e38499/" class="post-meta-item leancloud_visitors" data-flag-title="2020-02-07-现代数字信号处理实验" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,8 +273,8 @@
       </span>
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/2021/02/05/my-first-blog/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/05/my-first-blog/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/c4e38499/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/c4e38499/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -289,7 +284,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -298,7 +293,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>2 分钟</span>
             </span>
-            <div class="post-description">控制理论无模型自适应迭代学习方法的原理和matlab仿真。</div>
+            <div class="post-description">研一现代数字信号处理实验，使用虚拟机进行语音信号处理</div>
 
         </div>
       </header>
@@ -309,16 +304,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="无模型自适应ILC原理及代码实现"><a href="#无模型自适应ILC原理及代码实现" class="headerlink" title="无模型自适应ILC原理及代码实现"></a>无模型自适应ILC原理及代码实现</h2><p> 这里学习的是很老的一篇论文《基于无模型自适应控制的反馈-前馈迭代学习控制系统收敛性研究》，作者是晏静文和侯忠生，大家有兴趣可以找来看看。这里主要介绍的无模型自适应的控制率的matlab代码仿真实现和结果分析。<br> 首先数值给出了问题定义，给出m维输入q维输入的非线性系统：</p>
-<script type="math/tex; mode=display">
-y_{n}(k+1)=f(u_{n}(k),y_{n})(k),\xi(k),k)</script><p>两个假设是为了收敛性证明提出的，这里不详细讲（其实收敛性推导我也没推），然后对于该系统设计了前馈和反馈控制律如下：</p>
-<script type="math/tex; mode=display">
-u_{n}(k)=u^{f}_{n}(k)+u^{b}_{k}(k)</script><script type="math/tex; mode=display">
-u^{f}_{n}(k)=u^{f}_{n-1}(k)+\beta e_{n-1}(k+1)</script><script type="math/tex; mode=display">
-u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|^{2}}*[y_{d}(k+1)-y_{n}(k)]</script><script type="math/tex; mode=display">
-\hat{\phi_{n}}(k)=\hat{\phi_{n}}(k-1)+\frac{\eta \Delta u^{b}_{k-1} }{\mu +|\Delta u^{b}_{k-1}|^2}*[\Delta y_{n}(k)-\hat\phi_{n}(k-1)\Delta u^{b}_{n}(k-1)]</script><script type="math/tex; mode=display">
-\hat\phi_{n}(k)=\hat \phi(1)， 若\hat\phi_{n}(k)\leq\epsilon 或|\Delta u^{b}_{n}(k-1)\leq\epsilon|</script><p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：<br><img src="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center" alt="在这里插入图片描述"><br>期望曲线：<br><img src="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center" alt="在这里插入图片描述"><br>基于控制律和系统编写matlab代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">% 期望轨迹</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">	<span class="keyword">if</span> k &lt; <span class="number">250</span></span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*(-<span class="number">1</span>).^(round(k/<span class="number">100</span>));</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*sin((k*pi)/<span class="number">100</span>) + <span class="number">0.3</span>*cos((k*pi)/<span class="number">50</span>);</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 参数设置</span><br><span class="line">epsilon = <span class="number">0.01</span>;</span><br><span class="line">eta = <span class="number">1</span>;</span><br><span class="line">rho = <span class="number">0.2</span>;</span><br><span class="line">lamda = <span class="number">1</span>;</span><br><span class="line">mu = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">% 控制过程</span><br><span class="line">i_n = <span class="number">60</span>;  %迭代次数</span><br><span class="line">y(<span class="number">1</span>:i_n,<span class="number">1</span>:<span class="number">500</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">	<span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			phi(i,k) = <span class="number">0.4</span>;</span><br><span class="line">		elseif k == <span class="number">2</span></span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)/(mu + norm(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)^<span class="number">2</span>))*(y(i,k) - <span class="number">0</span> - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>));</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))/(mu + norm(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))^<span class="number">2</span>))*(y(i,k) - y(i,k-<span class="number">1</span>) - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> i == <span class="number">1</span></span><br><span class="line">			uf(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			uf(i,k) = uf(i-<span class="number">1</span>,k) + <span class="number">0.4</span>*e(i-<span class="number">1</span>,k+<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			ub(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			ub(i,k) = ub(i,k-<span class="number">1</span>) + (rho*phi(i,k)/(lamda + norm(phi(i,k))^<span class="number">2</span>))*(yd(k+<span class="number">1</span>) - y(i,k));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k&gt;<span class="number">2</span> &amp;&amp; (phi(i,k) &lt;= epsilon || (abs(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)) &lt;= epsilon))</span><br><span class="line">			phi(i,k) = phi(i,<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		u(i,k) = uf(i,k) + ub(i,k);</span><br><span class="line">		%系统函数</span><br><span class="line">		<span class="keyword">if</span> k &lt;<span class="number">250</span> </span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + (u(i,k) + <span class="number">0.1</span>*round(k/<span class="number">500</span>)*sin(y(i,k)))^<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)^<span class="number">3</span>/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + u(i,k)^<span class="number">3</span>;</span><br><span class="line">		end</span><br><span class="line">		e(i,k+<span class="number">1</span>) = yd(k+<span class="number">1</span>) - y(i,k+<span class="number">1</span>);</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">%误差</span><br><span class="line"><span class="keyword">for</span> i =<span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">e_min(i) = max(abs(e(i,:)));</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">figure(<span class="number">1</span>) </span><br><span class="line">plot(yd,<span class="string">&#x27;r&#x27;</span>); hold on;</span><br><span class="line">plot(y(i_n,:),<span class="string">&#x27;b&#x27;</span>); title(<span class="string">&#x27;µü´ú10´Î&#x27;</span>);</span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">plot(e_min);title(<span class="string">&#x27;error of time k&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>50次迭代：<br><img src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>100次迭代：<br><img src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>100次迭代 最大误差和最下误差收敛结果：<br><img src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结束。</p>
+        <h3 id="按照给定的实验书出现的问题"><a href="#按照给定的实验书出现的问题" class="headerlink" title="按照给定的实验书出现的问题"></a>按照给定的实验书出现的问题</h3><p>由于老师给的报告里是Ubuntu11.10系统，在安装GNU Radio和UHD时遇到了诸多困难，于是想在Ubuntu18.04上完成实验。首先在网上搜索安装方法，找到了安装过程，参考的博客园的博主寄生的鱼，在这里说一声谢谢。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jsdy/p/11420189.html">参考链接</a></p>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p>我的实验环境是vmware14 pro安装的Ubuntu18.04系统（这里安装虚拟机和系统的方法网上很多）。进入系统在软件更新里将源切换为阿里云。如图：</p>
+<p><img src="https://s3.ax1x.com/2021/02/07/yNMwqO.png" alt="source"></p>
+<p>打开终端执行<code>sudo apt-get update</code>。</p>
+<h3 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h3><p>安装依赖包的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install git swig cmake doxygen build-essential libboost-all-dev libtool libusb-1.0-0 libusb-1.0-0-dev libudev-dev libncurses5-dev libfftw3-bin libfftw3-dev libfftw3-doc libcppunit-1.14-0 libcppunit-dev libcppunit-doc ncurses-bin cpufrequtils python-numpy python-numpy-doc python-numpy-dbg python-scipy python-docutils qt4-bin-dbg qt4-default qt4-doc libqt4-dev libqt4-dev-bin python-qt4 python-qt4-dbg python-qt4-dev python-qt4-doc python-qt4-doc libqwt6abi1 libfftw3-bin libfftw3-dev libfftw3-doc ncurses-bin libncurses5 libncurses5-dev libncurses5-dbg libfontconfig1-dev libxrender-dev libpulse-dev swig g++ automake autoconf libtool python-dev libfftw3-dev libcppunit-dev libboost-all-dev libusb-dev libusb-1.0-0-dev fort77 libsdl1.2-dev python-wxgtk3.0 git libqt4-dev python-numpy ccache python-opengl libgsl-dev python-cheetah python-mako python-lxml doxygen qt4-default qt4-dev-tools libusb-1.0-0-dev libqwtplot3d-qt5-dev pyqt4-dev-tools python-qwt5-qt4 cmake git wget libxi-dev gtk2-engines-pixbuf r-base-dev python-tk liborc-0.4-0 liborc-0.4-dev libasound2-dev python-gtk2 libzmq3-dev libzmq5 python-requests python-sphinx libcomedi-dev python-zmq libqwt-dev libqwt6abi1 python-six libgps-dev libgps23 gpsd gpsd-clients python-gps python-setuptools</span><br></pre></td></tr></table></figure>
+<p>执行完以后在终端里进入到<code>home</code>文件夹，创建<code>workplace</code>工作区：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd home</span><br><span class="line">sudo mkdir workplace</span><br><span class="line">cd workplace</span><br></pre></td></tr></table></figure>
+<p>然后下载UHD源码编译，这一步可以参考上面寄生的鱼的链接。</p>
+<h3 id="UHD的安装"><a href="#UHD的安装" class="headerlink" title="UHD的安装"></a>UHD的安装</h3><p>在<code>workplace</code>目录下启动终端逐个执行以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone https:&#x2F;&#x2F;github.com&#x2F;EttusResearch&#x2F;uhd</span><br><span class="line">git checkout v3.14.1.1</span><br><span class="line">cd host</span><br><span class="line">sudo mkdir build</span><br><span class="line">cd build</span><br><span class="line">sudo cmake ..&#x2F;</span><br><span class="line">sudo make</span><br><span class="line">sudo make test</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+<h3 id="GNU-Radio的下载和安装"><a href="#GNU-Radio的下载和安装" class="headerlink" title="GNU Radio的下载和安装"></a>GNU Radio的下载和安装</h3><p>这里照着之前博主的安装在<code>cmake</code>时会出错原因时缺少<code>volk</code>，所以这里重新给出GNU Radio的安装方法；</p>
+<p>注意这里要返回到workplace文件夹下，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;gnuradio&#x2F;volk.git </span><br></pre></td></tr></table></figure>
+<p>下载好源码以后，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd volk</span><br><span class="line">sudo mkdir build</span><br><span class="line">cd build</span><br><span class="line">sudo cmake ..</span><br><span class="line">sudo make</span><br><span class="line">sudo make test</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>如果在<code>cmake</code>或者<code>make</code>时出了问题执行下面的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;gnuradio&#x2F;volk.git</span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+<p>volk安装完成以后，在安装GNU Radio就没有什么问题了；同样回到<code>workplace</code>文件下，终端里执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;gnuradio&#x2F;gnuradio.git </span><br><span class="line">cd gnuradio&#x2F; </span><br><span class="line">git checkout v3.7.13.5</span><br><span class="line">sudo mkdir build </span><br><span class="line">cd build </span><br><span class="line">sudo cmake ..&#x2F; </span><br><span class="line">sudo make</span><br><span class="line">sudo make test </span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>这次应该没什么问题了，都安装完成以后，可以重新打开一个终端执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gnuradio-companion</span><br></pre></td></tr></table></figure>
+<p>就会弹出GNU的交互界面啦！（会有fail to load…不用管）如图；然后可以按照老师给的实验书进行实验啦！</p>
+<p><img src="https://s3.ax1x.com/2021/02/07/yNMDde.png" alt="界面"></p>
 
     </div>
 
@@ -337,7 +346,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://happy2h.github.io/2021/02/05/my-first-blog/" title="无模型自适应ILC原理及代码实现">https://happy2h.github.io/2021/02/05/my-first-blog/</a>
+    <a href="https://happy2h.github.io/posts/c4e38499/" title="2020-02-07-现代数字信号处理实验">https://happy2h.github.io/posts/c4e38499/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -348,7 +357,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/matlab/" rel="tag"><i class="fa fa-tag"></i> matlab</a>
+              <a href="/tags/%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C/" rel="tag"><i class="fa fa-tag"></i> 教学实验</a>
           </div>
 
         
@@ -356,11 +365,11 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/02/06/2021-02-06-%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="next" title="2021-02-06-机器人项目学习记录">
-      2021-02-06-机器人项目学习记录 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/180b4269/" rel="prev" title="2021-02-06-机器人项目学习记录">
+      <i class="fa fa-chevron-left"></i> 2021-02-06-机器人项目学习记录
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -420,7 +429,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%A8%A1%E5%9E%8B%E8%87%AA%E9%80%82%E5%BA%94ILC%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">无模型自适应ILC原理及代码实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E7%BB%99%E5%AE%9A%E7%9A%84%E5%AE%9E%E9%AA%8C%E4%B9%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">按照给定的实验书出现的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">安装虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">安装依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UHD%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">UHD的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GNU-Radio%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">GNU Radio的下载和安装</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -946,59 +955,6 @@ if(canvas.getContext){
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
