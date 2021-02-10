@@ -1,16 +1,13 @@
 User-agent: *
 Allow: /
-Allow: /home/
-Allow: /about/
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
-Disallow: /js/
-Disallow: /css/
-Disallow: /fonts/
+Allow: /about/
+
 Disallow: /vendors/
+Disallow: /css/
 Disallow: /fancybox/
-Disallow: /categories/
 
 Sitemap: https://edhyjmy.top/sitemap.xml
-Sitemap: https://edhyjmy.top/baidusitemap.xml
+Sitemap: https://edhyjmy.top/baidu_sitemap.xml
