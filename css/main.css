@@ -1214,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff245b;
+  background: #ff9840;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1572,11 +1572,11 @@ pre .javascript .function {
   text-align: center;
 }
 .use-motion .post-block {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  box-shadow: 0 2px 2px 0 #28290f, 0 3px 1px -2px #28291e, 0 1px 5px 0 #28290f, 0 -1px 0.5px 0 #282912;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: 0 1px 1px 0 #28290f, 0 3px 1px -2px #28291e, 0 1px 5px 0 #28290f, 0 -1px 0.5px 0 #282912;
   opacity: 0;
   margin-bottom: 50px;
   padding: 20px;
