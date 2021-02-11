@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://edhyjmy.top/posts/d96374af/</loc>
+    
+    <lastmod>2021-02-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://edhyjmy.top/posts/2076e5fc/</loc>
     
     <lastmod>2021-02-10</lastmod>
@@ -81,6 +88,13 @@
   </url>
   
   <url>
+    <loc>https://edhyjmy.top/tags/hexo-next%E4%B8%BB%E9%A2%98-SEO/</loc>
+    <lastmod>2021-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://edhyjmy.top/tags/matlab/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
@@ -98,6 +112,13 @@
   
   <url>
     <loc>https://edhyjmy.top/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://edhyjmy.top/categories/NEXT%E4%B8%BB%E9%A2%98/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
