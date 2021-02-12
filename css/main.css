@@ -1220,7 +1220,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5eed85;
+  background: #ffd2a3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2621,10 +2621,9 @@ mjx-container + br {
   margin-top: 16px;
 }
 code {
-  color: #ff7600;
+  color: #646a58;
   background: #fbf7f8;
-  margin: 2px;
-  family: PingFang SC;
+  margin: 1px;
 }
 .highlight,
 pre {
