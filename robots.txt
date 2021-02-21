@@ -9,5 +9,5 @@ Disallow: /vendors/
 Disallow: /css/
 Disallow: /fancybox/
 
-Sitemap: https://edhyjmy.top/sitemap.xml
-Sitemap: https://edhyjmy.top/baidu_sitemap.xml
+Sitemap: https://happy2h.top/sitemap.xml
+Sitemap: https://happy2h.top/baidu_sitemap.xml
