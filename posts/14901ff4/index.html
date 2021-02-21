@@ -20,28 +20,27 @@
     var CONFIG = {"hostname":"happy2h.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"2IEBFWJP2S","apiKey":"52e6dd74b209642f8f92db0ad062f80d","indexName":"Search_service","hits":{"per_page":10},"labels":{"input_placeholder":"寻找博文","hits_empty":"找不到您输入的关键字: ${query}","hits_stats":"找到了 ${hits} 的結果，花了 ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"fadeIn","sidebar":"fadeIn"}}};
   </script>
 
-  <meta name="description" content="控制理论无模型自适应迭代学习方法的原理和matlab仿真。">
+  <meta name="description" content="给hexo-next主题侧边栏添加网易云歌单">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无模型自适应ILC原理及代码实现">
-<meta property="og:url" content="https://happy2h.top/posts/6946a94e/index.html">
+<meta property="og:title" content="2021-02-21-next侧边栏添加网易云歌单">
+<meta property="og:url" content="https://happy2h.top/posts/14901ff4/index.html">
 <meta property="og:site_name" content="Nickxie&#39;s Blog">
-<meta property="og:description" content="控制理论无模型自适应迭代学习方法的原理和matlab仿真。">
+<meta property="og:description" content="给hexo-next主题侧边栏添加网易云歌单">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2021-02-05T14:37:53.000Z">
-<meta property="article:modified_time" content="2021-02-10T16:03:32.065Z">
+<meta property="og:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221221804128.png">
+<meta property="og:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221222253865.png">
+<meta property="og:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221222345170.png">
+<meta property="og:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221223032089.png">
+<meta property="og:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/Snipaste_2021-02-21_21-07-17.jpg">
+<meta property="og:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221224405153.png">
+<meta property="article:published_time" content="2021-02-21T14:02:40.000Z">
+<meta property="article:modified_time" content="2021-02-21T14:47:12.319Z">
 <meta property="article:author" content="Nickxie">
-<meta property="article:tag" content="matlab">
+<meta property="article:tag" content="hexo-next主题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center">
+<meta name="twitter:image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221221804128.png">
 
-<link rel="canonical" href="https://happy2h.top/posts/6946a94e/">
+<link rel="canonical" href="https://happy2h.top/posts/14901ff4/">
 
 
 <script id="page-configurations">
@@ -54,7 +53,7 @@
   };
 </script>
 
-  <title>无模型自适应ILC原理及代码实现 | Nickxie's Blog</title>
+  <title>2021-02-21-next侧边栏添加网易云歌单 | Nickxie's Blog</title>
   
 
 
@@ -218,7 +217,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://happy2h.top/posts/6946a94e/">
+    <link itemprop="mainEntityOfPage" href="https://happy2h.top/posts/14901ff4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/emblemmatic-happy-2h-logo-11.png">
@@ -231,7 +230,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          无模型自适应ILC原理及代码实现
+          2021-02-21-next侧边栏添加网易云歌单
         </h1>
 
         <div class="post-meta">
@@ -240,28 +239,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-02-05 22:37:53" itemprop="dateCreated datePublished" datetime="2021-02-05T22:37:53+08:00">2021-02-05</time>
+              <time title="创建时间：2021-02-21 22:02:40 / 修改时间：22:47:12" itemprop="dateCreated datePublished" datetime="2021-02-21T22:02:40+08:00">2021-02-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-11 00:03:32" itemprop="dateModified" datetime="2021-02-11T00:03:32+08:00">2021-02-11</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">控制算法学习</span></a>
+                  <a href="/categories/NEXT%E4%B8%BB%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">NEXT主题</span></a>
                 </span>
             </span>
 
           
-            <span id="/posts/6946a94e/" class="post-meta-item leancloud_visitors" data-flag-title="无模型自适应ILC原理及代码实现" title="阅读次数">
+            <span id="/posts/14901ff4/" class="post-meta-item leancloud_visitors" data-flag-title="2021-02-21-next侧边栏添加网易云歌单" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -276,8 +269,8 @@
       </span>
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/posts/6946a94e/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/6946a94e/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/14901ff4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/14901ff4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -287,16 +280,16 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>709</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
-            <div class="post-description">控制理论无模型自适应迭代学习方法的原理和matlab仿真。</div>
+            <div class="post-description">给hexo-next主题侧边栏添加网易云歌单</div>
 
         </div>
       </header>
@@ -307,16 +300,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="无模型自适应ILC原理及代码实现"><a href="#无模型自适应ILC原理及代码实现" class="headerlink" title="无模型自适应ILC原理及代码实现"></a>无模型自适应ILC原理及代码实现</h2><p> 这里学习的是很老的一篇论文《基于无模型自适应控制的反馈-前馈迭代学习控制系统收敛性研究》，作者是晏静文和侯忠生，大家有兴趣可以找来看看。这里主要介绍的无模型自适应的控制率的matlab代码仿真实现和结果分析。<br> 首先数值给出了问题定义，给出m维输入q维输入的非线性系统：</p>
-<script type="math/tex; mode=display">
-y_{n}(k+1)=f(u_{n}(k),y_{n})(k),\xi(k),k)</script><p>两个假设是为了收敛性证明提出的，这里不详细讲（其实收敛性推导我也没推），然后对于该系统设计了前馈和反馈控制律如下：</p>
-<script type="math/tex; mode=display">
-u_{n}(k)=u^{f}_{n}(k)+u^{b}_{k}(k)</script><script type="math/tex; mode=display">
-u^{f}_{n}(k)=u^{f}_{n-1}(k)+\beta e_{n-1}(k+1)</script><script type="math/tex; mode=display">
-u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|^{2}}*[y_{d}(k+1)-y_{n}(k)]</script><script type="math/tex; mode=display">
-\hat{\phi_{n}}(k)=\hat{\phi_{n}}(k-1)+\frac{\eta \Delta u^{b}_{k-1} }{\mu +|\Delta u^{b}_{k-1}|^2}*[\Delta y_{n}(k)-\hat\phi_{n}(k-1)\Delta u^{b}_{n}(k-1)]</script><script type="math/tex; mode=display">
-\hat\phi_{n}(k)=\hat \phi(1)， 若\hat\phi_{n}(k)\leq\epsilon 或|\Delta u^{b}_{n}(k-1)\leq\epsilon|</script><p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：<br><img src="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center" alt="在这里插入图片描述"><br>期望曲线：<br><img src="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center" alt="在这里插入图片描述"><br>基于控制律和系统编写matlab代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">% 期望轨迹</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">	<span class="keyword">if</span> k &lt; <span class="number">250</span></span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*(-<span class="number">1</span>).^(round(k/<span class="number">100</span>));</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*sin((k*pi)/<span class="number">100</span>) + <span class="number">0.3</span>*cos((k*pi)/<span class="number">50</span>);</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 参数设置</span><br><span class="line">epsilon = <span class="number">0.01</span>;</span><br><span class="line">eta = <span class="number">1</span>;</span><br><span class="line">rho = <span class="number">0.2</span>;</span><br><span class="line">lamda = <span class="number">1</span>;</span><br><span class="line">mu = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">% 控制过程</span><br><span class="line">i_n = <span class="number">60</span>;  %迭代次数</span><br><span class="line">y(<span class="number">1</span>:i_n,<span class="number">1</span>:<span class="number">500</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">	<span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			phi(i,k) = <span class="number">0.4</span>;</span><br><span class="line">		elseif k == <span class="number">2</span></span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)/(mu + norm(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>)^<span class="number">2</span>))*(y(i,k) - <span class="number">0</span> - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - <span class="number">0</span>));</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			phi(i,k) = phi(i,k-<span class="number">1</span>) + (eta*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))/(mu + norm(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>))^<span class="number">2</span>))*(y(i,k) - y(i,k-<span class="number">1</span>) - phi(i,k-<span class="number">1</span>)*(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> i == <span class="number">1</span></span><br><span class="line">			uf(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			uf(i,k) = uf(i-<span class="number">1</span>,k) + <span class="number">0.4</span>*e(i-<span class="number">1</span>,k+<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			ub(i,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			ub(i,k) = ub(i,k-<span class="number">1</span>) + (rho*phi(i,k)/(lamda + norm(phi(i,k))^<span class="number">2</span>))*(yd(k+<span class="number">1</span>) - y(i,k));</span><br><span class="line">		end</span><br><span class="line">		<span class="keyword">if</span> k&gt;<span class="number">2</span> &amp;&amp; (phi(i,k) &lt;= epsilon || (abs(ub(i,k-<span class="number">1</span>) - ub(i,k-<span class="number">2</span>)) &lt;= epsilon))</span><br><span class="line">			phi(i,k) = phi(i,<span class="number">1</span>);</span><br><span class="line">		end</span><br><span class="line">		u(i,k) = uf(i,k) + ub(i,k);</span><br><span class="line">		%系统函数</span><br><span class="line">		<span class="keyword">if</span> k &lt;<span class="number">250</span> </span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + (u(i,k) + <span class="number">0.1</span>*round(k/<span class="number">500</span>)*sin(y(i,k)))^<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			y(i,k+<span class="number">1</span>) = y(i,k)*u(i,k)^<span class="number">3</span>/(<span class="number">1</span> + norm(y(i,k))^<span class="number">2</span>) + u(i,k)^<span class="number">3</span>;</span><br><span class="line">		end</span><br><span class="line">		e(i,k+<span class="number">1</span>) = yd(k+<span class="number">1</span>) - y(i,k+<span class="number">1</span>);</span><br><span class="line">	end</span><br><span class="line">end</span><br><span class="line">%误差</span><br><span class="line"><span class="keyword">for</span> i =<span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">e_min(i) = max(abs(e(i,:)));</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">figure(<span class="number">1</span>) </span><br><span class="line">plot(yd,<span class="string">&#x27;r&#x27;</span>); hold on;</span><br><span class="line">plot(y(i_n,:),<span class="string">&#x27;b&#x27;</span>); title(<span class="string">&#x27;µü´ú10´Î&#x27;</span>);</span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">plot(e_min);title(<span class="string">&#x27;error of time k&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>50次迭代：<br><img src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>100次迭代：<br><img src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>100次迭代 最大误差和最下误差收敛结果：<br><img src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结束。</p>
+        <h3 id="获取网易云歌单外链"><a href="#获取网易云歌单外链" class="headerlink" title="获取网易云歌单外链"></a>获取网易云歌单外链</h3><p>打开网易云网站，找到你想要添加的歌曲或者歌单，将歌曲或者歌单分享到网易云的动态里，然后点头像 - 个人主页 - 动态就可以看到分享的歌曲，点进去点击生成外链播放器。</p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221221804128.png" alt="image-20210221221804128"></p>
+<p>如果点击生成出现了版权保护无法生成的话，使用网页的调试模式，<kbd>F12</kbd>然后选择元素，点击左上角的小箭头，然后点击生成外链播放器，复制<code>data-href</code>的值，如图所示：</p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221222253865.png" alt="image-20210221222253865"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221222345170.png" alt="image-20210221222345170"></p>
+<p>复制双引号里的值，然后添加到下面的链接后去：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://music.163.com/#/你刚才复制的值</span><br></pre></td></tr></table></figure>
+<p>访问刚才补偿完的链接，复制代码：</p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221223032089.png" alt="image-20210221223032089"></p>
+<h3 id="添加到侧边栏中"><a href="#添加到侧边栏中" class="headerlink" title="添加到侧边栏中"></a>添加到侧边栏中</h3><p>我使用的博客主题是<code>next-Gemini</code>，有两种添加方式：</p>
+<h4 id="添加到侧边栏的菜单里"><a href="#添加到侧边栏的菜单里" class="headerlink" title="添加到侧边栏的菜单里"></a>添加到侧边栏的菜单里</h4><p>打开路径next/layout/_paetials/header/menu.swg，在末尾添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">450</span> <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=0&amp;id=63484374&amp;auto=1&amp;height=430&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>保存，然后<code>hexo g -d</code>，可以看到效果图：</p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/Snipaste_2021-02-21_21-07-17.jpg" alt="Snipaste_2021-02-21_21-07-17"></p>
+<h4 id="在侧边栏添加"><a href="#在侧边栏添加" class="headerlink" title="在侧边栏添加"></a>在侧边栏添加</h4><p>打开文件themes\next\layout_macro\sidebar.swig，在back2top的div之前添加上面的div即可，效果图就是如下所示：</p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210221224405153.png" alt="image-20210221224405153"></p>
+<p>本文结束。</p>
 
     </div>
 
@@ -328,7 +328,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\cfed506\" rel="bookmark">2020-02-12-matlab和VeriStand联合仿真问题解决</a></div>
+      <div class="popular-posts-title"><a href="\posts\2040c6f9\" rel="bookmark">2021-02-15-利用gitee搭建hexo博客，百度收录</a></div>
     </li>
   </ul>
 
@@ -341,7 +341,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://happy2h.top/posts/6946a94e/" title="无模型自适应ILC原理及代码实现">https://happy2h.top/posts/6946a94e/</a>
+    <a href="https://happy2h.top/posts/14901ff4/" title="2021-02-21-next侧边栏添加网易云歌单">https://happy2h.top/posts/14901ff4/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -352,7 +352,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/matlab/" rel="tag"><i class="fa fa-tag"></i> matlab</a>
+              <a href="/tags/hexo-next%E4%B8%BB%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> hexo-next主题</a>
           </div>
 
         
@@ -360,11 +360,11 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/posts/180b4269/" rel="next" title="2021-02-06-机器人项目学习记录">
-      2021-02-06-机器人项目学习记录 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/2040c6f9/" rel="prev" title="2021-02-15-利用gitee搭建hexo博客，百度收录">
+      <i class="fa fa-chevron-left"></i> 2021-02-15-利用gitee搭建hexo博客，百度收录
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -435,7 +435,7 @@ u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|
       </ul>
 
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%A8%A1%E5%9E%8B%E8%87%AA%E9%80%82%E5%BA%94ILC%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">无模型自适应ILC原理及代码实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%BD%91%E6%98%93%E4%BA%91%E6%AD%8C%E5%8D%95%E5%A4%96%E9%93%BE"><span class="nav-number">1.</span> <span class="nav-text">获取网易云歌单外链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%B0%E4%BE%A7%E8%BE%B9%E6%A0%8F%E4%B8%AD"><span class="nav-number">2.</span> <span class="nav-text">添加到侧边栏中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%B0%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E8%8F%9C%E5%8D%95%E9%87%8C"><span class="nav-number">2.1.</span> <span class="nav-text">添加到侧边栏的菜单里</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%B7%BB%E5%8A%A0"><span class="nav-number">2.2.</span> <span class="nav-text">在侧边栏添加</span></a></li></ol></li></ol></div>
       </div>
 
       <div class="site-overview-wrap sidebar-panel">
@@ -934,59 +934,6 @@ if(canvas.getContext){
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
