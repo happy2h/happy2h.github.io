@@ -1218,6 +1218,12 @@ pre .javascript .function {
   padding: 2px;
   border-radius: 50%;
 }
+.site-author-image {
+  transition: transform 1s ease-out;
+}
+.site-author-image:hover {
+  transform: rotateZ(360deg);
+}
 .site-author-name {
   color: var(--text-color);
   font-weight: 600;
@@ -1244,7 +1250,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #12ffe8;
+  background: #3866ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2780,7 +2786,7 @@ pre {
 .highlight,
 code,
 pre {
-  border: 1px solid #d6d6d6;
+  border: 1px solid #fed600;
 }
 .post-button .btn {
   line-height: 2;
