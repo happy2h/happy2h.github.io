@@ -1250,7 +1250,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d1b544;
+  background: #9cec7f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2798,7 +2798,7 @@ pre {
   line-height: 2;
   padding: 0 20px;
   border: none;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.7);
 }
 body {
   background-image: url("https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/michiel-annaert-6FMATSLPW-s-unsplash.jpg");
@@ -2806,4 +2806,7 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
   background-size: 100% 100%;
+}
+.footer-inner {
+  color: rgba(241,243,243,0.7);
 }
