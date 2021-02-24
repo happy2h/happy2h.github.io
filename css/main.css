@@ -1250,7 +1250,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0340cc;
+  background: #bffffc;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2376,7 +2376,7 @@ mjx-container + br {
   }
 }
 .header-inner {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.9);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   overflow: hidden;
@@ -2541,7 +2541,7 @@ mjx-container + br {
   border-bottom-color: #fc6423;
 }
 .sidebar {
-  background: var(--body-bg-color);
+  background: rgba(255,255,255,0.9);
   box-shadow: none;
   margin-top: 100%;
   position: static;
@@ -2556,7 +2556,7 @@ mjx-container + br {
   display: none;
 }
 .sidebar-inner {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.9);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
@@ -2654,7 +2654,7 @@ mjx-container + br {
   padding: initial;
 }
 .post-block {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.9);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   padding: 40px;
@@ -2665,7 +2665,7 @@ mjx-container + br {
   margin-top: 12px;
 }
 .comments {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.9);
   border-radius: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
@@ -2681,7 +2681,7 @@ mjx-container + br {
   display: none;
 }
 .pagination {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.9);
   border-radius: initial;
   border-top: initial;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
@@ -2792,4 +2792,12 @@ pre {
   line-height: 2;
   padding: 0 20px;
   border: none;
+  background: rgba(255,255,255,0.1);
+}
+body {
+  background-image: url("https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/michiel-annaert-6FMATSLPW-s-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
 }
