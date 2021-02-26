@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <script src="/js/src/photoswipe.min.js?v="></script>
 <script src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -19,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"happy2h.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"2IEBFWJP2S","apiKey":"52e6dd74b209642f8f92db0ad062f80d","indexName":"Search_service","hits":{"per_page":10},"labels":{"input_placeholder":"寻找博文","hits_empty":"找不到您输入的关键字: ${query}","hits_stats":"找到了 ${hits} 的結果，花了 ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"fadeIn","sidebar":"fadeIn"}}};
+    var CONFIG = {"hostname":"happy2h.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"appID":"2IEBFWJP2S","apiKey":"52e6dd74b209642f8f92db0ad062f80d","indexName":"Search_service","hits":{"per_page":10},"labels":{"input_placeholder":"寻找博文","hits_empty":"找不到您输入的关键字: ${query}","hits_stats":"找到了 ${hits} 的結果，花了 ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"fadeIn","sidebar":"fadeIn"}}};
   </script>
 
   <meta name="description" content="好好学习，天天向上">
@@ -240,9 +241,42 @@
               目前共计 8 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/LabVIEW/" style="font-size: 20px; color: #ff69b4">LabVIEW</a> <a href="/tags/hexo-next%E4%B8%BB%E9%A2%98/" style="font-size: 30px; color: #8a2be2">hexo-next主题</a> <a href="/tags/hexo-next%E4%B8%BB%E9%A2%98-SEO/" style="font-size: 20px; color: #ff69b4">hexo-next主题, SEO</a> <a href="/tags/matlab/" style="font-size: 25px; color: #c54acb">matlab</a> <a href="/tags/matlab-%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #ff69b4">matlab, 算法</a> <a href="/tags/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" style="font-size: 20px; color: #ff69b4">next主题美化</a> <a href="/tags/%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C/" style="font-size: 20px; color: #ff69b4">教学实验</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px; color: #ff69b4">随笔</a>
+              <a href="/tags/LabVIEW/" style="font-size: 20px;">LabVIEW</a> <a href="/tags/hexo-next%E4%B8%BB%E9%A2%98/" style="font-size: 30px;">hexo-next主题</a> <a href="/tags/hexo-next%E4%B8%BB%E9%A2%98-SEO/" style="font-size: 20px;">hexo-next主题, SEO</a> <a href="/tags/matlab/" style="font-size: 25px;">matlab</a> <a href="/tags/matlab-%E7%AE%97%E6%B3%95/" style="font-size: 20px;">matlab, 算法</a> <a href="/tags/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" style="font-size: 20px;">next主题美化</a> <a href="/tags/%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C/" style="font-size: 20px;">教学实验</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20px;">随笔</a>
             </div>
           </div>
+        <script type="text/javascript">
+     var alltags = document.getElementsByClassName('tag-cloud-tags');
+     var tags = alltags[0].getElementsByTagName('a');
+     for (var i = tags.length - 1; i >= 0; i--) {
+       var r=Math.floor(Math.random()*75+130);
+       var g=Math.floor(Math.random()*75+100);
+       var b=Math.floor(Math.random()*75+80);
+       tags[i].style.background = "rgb("+r+","+g+","+b+")";
+     }
+</script>
+
+<style>
+  .tag-cloud-tags{
+    /*font-family: Helvetica, Tahoma, Arial;*/
+    /*font-weight: 100;*/
+    text-align: center;
+    counter-reset: tags;
+  }
+  .tag-cloud-tags a{
+    border-radius: 3px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 8px 5px 0px 0px;
+    color: rgba(253, 254, 249, 0.8);
+  }
+
+  .tag-cloud-tags a:hover{
+     box-shadow: 0px 5px 15px 0px rgba(0,0,0,.4);
+     transform: scale(1.1);
+     transition-duration: 0.15s;
+  }
+</style>
+	
         
       </div>
       
