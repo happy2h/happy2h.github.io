@@ -1228,7 +1228,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffe8ff;
+  background: #9881a2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2751,9 +2751,9 @@ mjx-container + br {
   }
 }
 code {
-  color: #646a58;
-  background: #fbf7f8;
-  margin: 1px;
+  color: #9ae22e;
+  background: #272822;
+  margin: 2px;
 }
 .highlight,
 pre {
@@ -2761,17 +2761,17 @@ pre {
   padding: 5px;
   border-radius: 3px;
 }
-cc,
 .highlight,
 code,
 pre {
-  border: 1px solid #a8a8a8;
+  border: 1px solid #d6d6d6;
+  font-size: 15px;
 }
 .post-button .btn {
   line-height: 2;
   padding: 0 20px;
   border: none;
-  background: rgba(255,255,255,0.1);
+  background: none;
 }
 .post-button .btn:hover {
   line-height: 2;
@@ -2785,6 +2785,13 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
   background-size: 100% 100%;
+}
+.post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
 .footer-inner {
   color: rgba(241,243,243,0.7);
