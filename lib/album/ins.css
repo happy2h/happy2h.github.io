@@ -26,7 +26,7 @@ figure {
     margin: 0px;
 }
 .instagram .year {
-	font-size: 16px;
+	font-size: 25px;
 }
 .instagram .open-ins{
 	padding: 10px 0;
@@ -41,7 +41,7 @@ figure {
 .instagram .thumb {
 	width: 25%;
 	margin: 10px;
-	background: #ededed;
+	background: #ddd;
 	outline: 1px solid #ddd;
 }
 .instagram .thumb a {
@@ -49,7 +49,7 @@ figure {
 }
 .instagram .album h1 em{
 	font-style: normal;
-	font-size: 14px;
+	font-size: 20px;
 	margin-left: 10px;
 }
 .instagram .album ul{
