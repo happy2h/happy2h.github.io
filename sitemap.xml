@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://happy2h.top/posts/a9b6cdae/</loc>
+    
+    <lastmod>2021-02-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://happy2h.top/posts/475e965a/</loc>
     
     <lastmod>2021-02-28</lastmod>
@@ -194,6 +201,13 @@
   
   <url>
     <loc>https://happy2h.top/tags/hexo%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2021-02-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://happy2h.top/tags/U%E7%9B%98%E9%87%8F%E4%BA%A7/</loc>
     <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
