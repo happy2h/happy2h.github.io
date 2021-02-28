@@ -27,6 +27,7 @@ figure {
 }
 .instagram .year {
 	font-size: 25px;
+	border-bottom: 2px dashed #4a47a3;
 }
 .instagram .open-ins{
 	padding: 10px 0;
