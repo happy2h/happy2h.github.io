@@ -17,17 +17,17 @@
 
 
     <title>无模型自适应ILC原理及代码实现 | Nickxie&#39;s Blog</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
@@ -43,7 +43,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Nickxie&#39;s Blog</span>
                 </a>
@@ -120,7 +120,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Nickxie&#39;s Blog</div>
         <div class="logo-desc">
@@ -268,7 +268,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2021/03/07/mqwLXUNZHvcstVP.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -286,7 +286,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -419,6 +419,11 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-07
+                </div>
+                
 
                 
                 <div class="info-break-policy">
@@ -446,7 +451,7 @@
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/prism/prism.css">
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -461,69 +466,71 @@ u_{n}(k)=u^{f}_{n}(k)+u^{b}_{k}(k)</script><script type="math/tex; mode=display"
 u^{f}_{n}(k)=u^{f}_{n-1}(k)+\beta e_{n-1}(k+1)</script><script type="math/tex; mode=display">
 u^{b}_{n}(k)=u^{b}_{n}(k-1)+\frac{\rho *\phi_{n}(k)}{\lambda+|\hat{\phi_{n}}(k)|^{2}}*[y_{d}(k+1)-y_{n}(k)]</script><script type="math/tex; mode=display">
 \hat{\phi_{n}}(k)=\hat{\phi_{n}}(k-1)+\frac{\eta \Delta u^{b}_{k-1} }{\mu +|\Delta u^{b}_{k-1}|^2}*[\Delta y_{n}(k)-\hat\phi_{n}(k-1)\Delta u^{b}_{n}(k-1)]</script><script type="math/tex; mode=display">
-\hat\phi_{n}(k)=\hat \phi(1)， 若\hat\phi_{n}(k)\leq\epsilon 或|\Delta u^{b}_{n}(k-1)\leq\epsilon|</script><p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：<br><img src="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center" alt="在这里插入图片描述"><br>期望曲线：<br><img src="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center" alt="在这里插入图片描述"><br>基于控制律和系统编写matlab代码如下：<br></p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">%</span> 期望轨迹
+\hat\phi_{n}(k)=\hat \phi(1)， 若\hat\phi_{n}(k)\leq\epsilon 或|\Delta u^{b}_{n}(k-1)\leq\epsilon|</script><p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：<br><img src="https://img-blog.csdnimg.cn/20201007174430202.jpg#pic_center" alt="仿真系统"><br>期望曲线：<br><img src="https://img-blog.csdnimg.cn/20201007174511603.jpg#pic_center" alt="期望曲线"><br>基于控制律和系统编写matlab代码如下：</p>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token comment">% 期望轨迹</span>
 <span class="token keyword">for</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span>
 	<span class="token keyword">if</span> k <span class="token operator">&lt;</span> <span class="token number">250</span>
-		<span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>^<span class="token punctuation">(</span><span class="token function">round</span><span class="token punctuation">(</span>k<span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">.^</span><span class="token punctuation">(</span><span class="token function">round</span><span class="token punctuation">(</span>k<span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">else</span> 
-		<span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token operator">*</span>pi<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.3</span><span class="token operator">*</span><span class="token function">cos</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token operator">*</span>pi<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    end
-end
+		<span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token operator">*</span><span class="token keyword">pi</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.3</span><span class="token operator">*</span><span class="token function">cos</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token operator">*</span><span class="token keyword">pi</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
 
-<span class="token operator">%</span> 参数设置
+<span class="token comment">% 参数设置</span>
 epsilon <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
 eta <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 rho <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
 lamda <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 mu <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
-<span class="token operator">%</span> 控制过程
-i_n <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>  <span class="token operator">%</span>迭代次数
+<span class="token comment">% 控制过程</span>
+i_n <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>  <span class="token comment">%迭代次数</span>
 <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>i_n<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>i_n
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>i_n
 	<span class="token keyword">for</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">500</span>
 		<span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">1</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">;</span>
-		elseif k <span class="token operator">==</span> <span class="token number">2</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>eta<span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">;</span>
+		<span class="token keyword">elseif</span> k <span class="token operator">==</span> <span class="token number">2</span>
+			<span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>eta<span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token keyword">else</span> 
-			<span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>eta<span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		end
-		<span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token number">1</span>
-			<span class="token function">uf</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>eta<span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">end</span>
+		<span class="token keyword">if</span> <span class="token number">i</span> <span class="token operator">==</span> <span class="token number">1</span>
+			<span class="token function">uf</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 		<span class="token keyword">else</span> 
-			<span class="token function">uf</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">uf</span><span class="token punctuation">(</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.4</span><span class="token operator">*</span><span class="token function">e</span><span class="token punctuation">(</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		end
+			<span class="token function">uf</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">uf</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.4</span><span class="token operator">*</span><span class="token function">e</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">end</span>
 		<span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">1</span>
-			<span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+			<span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 		<span class="token keyword">else</span> 
-			<span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>rho<span class="token operator">*</span><span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>lamda <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		end
-		<span class="token keyword">if</span> k<span class="token operator">&gt;</span><span class="token number">2</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> epsilon <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> epsilon<span class="token punctuation">)</span><span class="token punctuation">)</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		end
-		<span class="token function">u</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">uf</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">ub</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token operator">%</span>系统函数
+			<span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>rho<span class="token operator">*</span><span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>lamda <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">end</span>
+		<span class="token keyword">if</span> k<span class="token operator">&gt;</span><span class="token number">2</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> epsilon <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> epsilon<span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">end</span>
+		<span class="token function">u</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">uf</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">ub</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">%系统函数</span>
 		<span class="token keyword">if</span> k <span class="token operator">&lt;</span><span class="token number">250</span> 
-			<span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">u</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token operator">*</span><span class="token function">round</span><span class="token punctuation">(</span>k<span class="token operator">/</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token punctuation">;</span>
+			<span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">u</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token operator">*</span><span class="token function">round</span><span class="token punctuation">(</span>k<span class="token operator">/</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token punctuation">;</span>
 		<span class="token keyword">else</span>
-			<span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">u</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">u</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token punctuation">;</span>
-		end
-		<span class="token function">e</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	end
-end
-<span class="token operator">%</span>误差
-<span class="token keyword">for</span> i <span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>i_n
-<span class="token function">e_min</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">e</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-end
+			<span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">u</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">u</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token punctuation">;</span>
+		<span class="token keyword">end</span>
+		<span class="token function">e</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">yd</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">end</span>
+<span class="token keyword">end</span>
+<span class="token comment">%误差</span>
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>i_n
+<span class="token function">e_min</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">e</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
 
 <span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 
 <span class="token function">plot</span><span class="token punctuation">(</span>yd<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> hold on<span class="token punctuation">;</span>
 <span class="token function">plot</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i_n<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'µü´ú10´Î'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token function">plot</span><span class="token punctuation">(</span>e_min<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'error of time k'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><p></p>
-<p>50次迭代：<br><img src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>100次迭代：<br><img src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt=""><br>100次迭代 最大误差和最下误差收敛结果：<br><img src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>结束。</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="迭代10次结果"></p>
+<p>50次迭代：<br><img src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="迭代50次结果"><br>100次迭代：<br><img src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="迭代100次"><br>100次迭代 最大误差和最下误差收敛结果：<br><img src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="误差收敛曲线"><br><img src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="误差收敛曲线"><br>结束。</p>
 
                 
             </div>
@@ -596,7 +603,7 @@ end
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
@@ -865,8 +872,8 @@ end
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/valine/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/valine/Valine.min.js"></script>
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -905,8 +912,7 @@ end
                 <a href="/posts/180b4269/">
                     <div class="card-image">
                         
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="2021-02-06-机器人项目学习记录">
+                        <img src="https://i.loli.net/2021/03/07/C12YMm8wTbHiL4X.jpg" class="responsive-img" alt="2021-02-06-机器人项目学习记录">
                         
                         <span class="card-title">2021-02-06-机器人项目学习记录</span>
                     </div>
@@ -954,8 +960,7 @@ end
                 <a href="/posts/6946a94e/">
                     <div class="card-image">
                         
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="无模型自适应ILC原理及代码实现">
+                        <img src="https://i.loli.net/2021/03/07/mqwLXUNZHvcstVP.jpg" class="responsive-img" alt="无模型自适应ILC原理及代码实现">
                         
                         <span class="card-title">无模型自适应ILC原理及代码实现</span>
                     </div>
@@ -963,7 +968,7 @@ end
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            控制理论无模型自适应迭代学习方法的原理和matlab仿真。
+                            无模型自适应迭代学习的原理和matlab仿真。
                         
                     </div>
                     <div class="publish-info">
@@ -1040,21 +1045,21 @@ end
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1075,7 +1080,7 @@ end
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1349,12 +1354,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1375,10 +1380,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1394,7 +1399,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>

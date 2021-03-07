@@ -34,7 +34,7 @@
 }
 
 body {
-    background-color: #eaeaea;
+    background-color: #dad6ab;
     margin: 0;
     color: #34495e;
     overflow-x: hidden;
@@ -241,7 +241,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #3c374a 0%, #1e3124 100%);
 }
 
 .text-color {
@@ -249,7 +249,7 @@ mark {
 }
 
 .white-color {
-    color: #fff;
+    color: #e6e6e6;
 }
 
 .progress-bar {
@@ -593,6 +593,7 @@ header .go-back i {
     font-weight: 400;
 }
 
+/* 动态背景切换颜色 */
 @-webkit-keyframes rainbow {
 
     0%,
@@ -1903,7 +1904,8 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, #ec9433 0%, #cfc592 100%);
+    padding-right: 5px;
     width: 48px;
     height: 48px;
 }

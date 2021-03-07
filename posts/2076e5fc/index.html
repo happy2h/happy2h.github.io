@@ -17,17 +17,17 @@
 
 
     <title>2020-02-10-高阶无模型自适应迭代学习控制 | Nickxie&#39;s Blog</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
@@ -43,7 +43,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Nickxie&#39;s Blog</span>
                 </a>
@@ -120,7 +120,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Nickxie&#39;s Blog</div>
         <div class="logo-desc">
@@ -268,7 +268,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2021/03/07/LkqrjEUJgxIzb1D.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -286,7 +286,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -419,6 +419,11 @@
                 
 
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-07
+                </div>
+                
 
                 
                 <div class="info-break-policy">
@@ -446,7 +451,7 @@
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/prism/prism.css">
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -458,11 +463,11 @@
 <p>“High-Order Model-Free Adaptive Iterative Learning Control of Pneumatic Artificial Muscle With Enhanced Convergence.” Ieee Transactions on Industrial Electronics </p>
 </blockquote>
 <h3 id="算法原理与内容"><a href="#算法原理与内容" class="headerlink" title="算法原理与内容"></a>算法原理与内容</h3><p>控制律采用的伪偏导和准者函数，基于紧凑型DL来线性化，伪偏导的估计采用高阶估计方式，给PPD初始值分配为10，控制律部分和PPD更新部分如下所示：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210216114122775.png" alt="image-20210216114122775"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210216114122775.png" alt="控制律和伪偏导更新"></p>
 <p>给出的仿真系统函数为：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008172446400.jpg" alt="20201008172446400"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008172446400.jpg" alt="仿真系统"></p>
 <p>期望轨迹为：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008172515518.jpg" alt="20201008172515518"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008172515518.jpg" alt="期望轨迹"></p>
 <p>系统参数设为：</p>
 <pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab">epsilon <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
 lambda <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">%0.6</span>
@@ -537,11 +542,11 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
 <span class="token function">plot</span><span class="token punctuation">(</span>e_max<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'error of time k'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h3><p>仿真结果如下：</p>
 <p>迭代6：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173203853.jpg" alt="20201008173203853"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173203853.jpg" alt="迭代6次"></p>
 <p>30次：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173233357.jpg" alt="20201008173233357"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173233357.jpg" alt="迭代30次"></p>
 <p>60次：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173245469.jpg" alt="20201008173245469"></p>
+<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173245469.jpg" alt="迭代60次"></p>
 <p>本文完，谢谢阅读。</p>
 
                 
@@ -615,7 +620,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
@@ -884,8 +889,8 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/valine/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/valine/Valine.min.js"></script>
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -924,8 +929,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                 <a href="/posts/d96374af/">
                     <div class="card-image">
                         
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="2021-02-11-next博客添加阿里云域名和收录">
+                        <img src="https://i.loli.net/2021/03/07/tW23MK9QRhGVPfs.jpg" class="responsive-img" alt="2021-02-11-next博客添加阿里云域名和收录">
                         
                         <span class="card-title">2021-02-11-next博客添加阿里云域名和收录</span>
                     </div>
@@ -933,7 +937,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            自己博客绑定域名和Google和百度收录的记录过程
+                            博客绑定域名和Google和百度收录
                         
                     </div>
                     <div class="publish-info">
@@ -973,8 +977,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                 <a href="/posts/c4e38499/">
                     <div class="card-image">
                         
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="2020-02-07-现代数字信号处理实验">
+                        <img src="https://i.loli.net/2021/03/07/YH5GVgAc3k8aF1I.jpg" class="responsive-img" alt="2020-02-07-现代数字信号处理实验">
                         
                         <span class="card-title">2020-02-07-现代数字信号处理实验</span>
                     </div>
@@ -982,7 +985,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            研一现代数字信号处理实验，使用虚拟机进行语音信号处理
+                            现代数字信号处理实验
                         
                     </div>
                     <div class="publish-info">
@@ -1058,21 +1061,21 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1093,7 +1096,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1360,12 +1363,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1386,10 +1389,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1405,7 +1408,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/happy2h/happy2h.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
