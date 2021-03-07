@@ -374,9 +374,17 @@
                 </a>
                 
                 
+                <a href="/tags/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" title="next主题美化: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active " data-tagname="next主题美化" style="background-color: #D7BDE2;">next主题美化
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/hexo%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/" title="hexo主题优化: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="hexo主题优化" style="background-color: #D7BDE2;">hexo主题优化
+                             chip-default " data-tagname="hexo主题优化" style="background-color: #A3E4D7;">hexo主题优化
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -384,15 +392,7 @@
                 
                 <a href="/tags/U%E7%9B%98%E9%87%8F%E4%BA%A7/" title="U盘量产: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="U盘量产" style="background-color: #A3E4D7;">U盘量产
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/" title="next主题美化: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " data-tagname="next主题美化" style="background-color: #85C1E9;">next主题美化
+                             chip-default " data-tagname="U盘量产" style="background-color: #85C1E9;">U盘量产
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -536,24 +536,6 @@
 </footer>
 
 <div class="progress-bar"></div>
-{% if theme.busuanzi %}
-<!-- 不蒜子 -->
-<script async="" src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- 不蒜子计数初始值纠正 -->
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var int = setInterval(fixCount, 100);
-        var busuanziSiteOffset = parseInt({{ theme.busuanzi_site_offset }});
-        function fixCount() {
-            if ($("#busuanzi_container_site_pv").css("display") != "none") {
-                clearInterval(int);
-                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
-            }
-        }
-    });
-</script>
-{% endif %}
 
 
     <!-- 搜索遮罩框 -->
