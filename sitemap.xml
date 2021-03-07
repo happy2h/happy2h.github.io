@@ -179,6 +179,13 @@
   </url>
   
   <url>
+    <loc>https://happy2h.top/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2021-03-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://happy2h.top/tags/LabVIEW/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
@@ -200,7 +207,14 @@
   </url>
   
   <url>
-    <loc>https://happy2h.top/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://happy2h.top/tags/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</loc>
+    <lastmod>2021-03-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://happy2h.top/tags/hexo%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -215,20 +229,6 @@
   
   <url>
     <loc>https://happy2h.top/tags/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2021-03-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://happy2h.top/tags/hexo%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2021-03-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://happy2h.top/tags/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
