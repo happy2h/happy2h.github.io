@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://happy2h.top/posts/cda94c23/</loc>
+    
+    <lastmod>2021-03-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://happy2h.top/posts/6946a94e/</loc>
     
     <lastmod>2021-03-07</lastmod>
@@ -151,14 +158,14 @@
 
   
   <url>
-    <loc>https://happy2h.top/tags/%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C/</loc>
+    <loc>https://happy2h.top/tags/matlab-%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://happy2h.top/tags/matlab-%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://happy2h.top/tags/%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -221,6 +228,13 @@
   </url>
   
   <url>
+    <loc>https://happy2h.top/tags/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-03-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://happy2h.top/tags/%E5%BC%80%E5%AD%A6/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
@@ -237,14 +251,14 @@
 
   
   <url>
-    <loc>https://happy2h.top/categories/%E6%95%99%E5%AD%A6%E8%AF%BE%E7%A8%8B/</loc>
+    <loc>https://happy2h.top/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://happy2h.top/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://happy2h.top/categories/%E6%95%99%E5%AD%A6%E8%AF%BE%E7%A8%8B/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -259,6 +273,13 @@
   
   <url>
     <loc>https://happy2h.top/categories/NEXT%E4%B8%BB%E9%A2%98/</loc>
+    <lastmod>2021-03-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://happy2h.top/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

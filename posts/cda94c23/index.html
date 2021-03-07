@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020-02-10-高阶无模型自适应迭代学习控制, Nickxie's Blog">
+    <meta name="keywords" content="2021-03-07-EndNoteX9使用教程, Nickxie's Blog">
     <meta name="description" content="好好学习，天天向上">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -12,7 +12,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020-02-10-高阶无模型自适应迭代学习控制 | Nickxie's Blog</title>
+    <title>2021-03-07-EndNoteX9使用教程 | Nickxie's Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,12 +261,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2021/03/07/zjUyTPpt3v5cnKJ.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020-02-10-高阶无模型自适应迭代学习控制</h1>
+                    <h1 class="description center-align post-title">2021-03-07-EndNoteX9使用教程</h1>
                 </div>
             </div>
         </div>
@@ -382,8 +382,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/matlab-%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">matlab, 算法</span>
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">学习工具</span>
                             </a>
                         
                     </div>
@@ -394,8 +394,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                控制算法学习
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/" class="post-category">
+                                科研工具教程
                             </a>
                         
                     </div>
@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-10
+                    2021-03-07
                 </div>
                 
 
@@ -421,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    683
+                    759
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -451,96 +451,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>首先是论文的题目和期刊，有兴趣的可以去下载看看。</p>
-<blockquote>
-<p>“High-Order Model-Free Adaptive Iterative Learning Control of Pneumatic Artificial Muscle With Enhanced Convergence.” Ieee Transactions on Industrial Electronics </p>
-</blockquote>
-<h3 id="算法原理与内容"><a href="#算法原理与内容" class="headerlink" title="算法原理与内容"></a>算法原理与内容</h3><p>控制律采用的伪偏导和准者函数，基于紧凑型DL来线性化，伪偏导的估计采用高阶估计方式，给PPD初始值分配为10，控制律部分和PPD更新部分如下所示：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/image-20210216114122775.png" alt="控制律和伪偏导更新"></p>
-<p>给出的仿真系统函数为：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008172446400.jpg" alt="仿真系统"></p>
-<p>期望轨迹为：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008172515518.jpg" alt="期望轨迹"></p>
-<p>系统参数设为：</p>
-<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab">epsilon <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
-lambda <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">%0.6</span>
-rho <span class="token operator">=</span> <span class="token number">0.85</span><span class="token punctuation">;</span>  <span class="token comment">%1</span>
-mu <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>    <span class="token comment">%1</span>
-eta <span class="token operator">=</span> <span class="token number">0.6</span><span class="token punctuation">;</span>  <span class="token comment">%0.6</span>
-alpha_1 <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">;</span>
-alpha_2 <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">;</span>
-alpha_3 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="算法代码"><a href="#算法代码" class="headerlink" title="算法代码"></a>算法代码</h3><p>代码在<a target="_blank" rel="noopener" href="https://github.com/happy2h/HOMFAILC/blob/main/HOMFAILC.m">GitHub</a>，能有小♥♥就更好了。具体如下：</p>
-<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token comment">%期望轨迹设置</span>
-<span class="token keyword">for</span> t <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">100</span>
-	<span class="token keyword">if</span> t <span class="token operator">&lt;=</span> <span class="token number">30</span>
-		<span class="token function">yd</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token function">round</span><span class="token punctuation">(</span>t<span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">elseif</span> t <span class="token operator">&gt;</span> <span class="token number">30</span> <span class="token operator">&amp;&amp;</span> t <span class="token operator">&lt;=</span> <span class="token number">70</span>
-		<span class="token function">yd</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t<span class="token operator">*</span><span class="token keyword">pi</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.3</span><span class="token operator">*</span><span class="token function">cos</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t<span class="token operator">*</span><span class="token keyword">pi</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">else</span>
-		<span class="token function">yd</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0.5</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token function">round</span><span class="token punctuation">(</span>t<span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span>
-<span class="token keyword">end</span>
+                <h2 id="EndNote的安装和导入文献前的配置"><a href="#EndNote的安装和导入文献前的配置" class="headerlink" title="EndNote的安装和导入文献前的配置"></a>EndNote的安装和导入文献前的配置</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1HfuBM0j_QRK01Lv7H8D4lA">EndNote下载链接</a>，免注册版本，提取码：4qlx。安装一路next即可。</li>
+<li>在导入文献之前，首先得新建一个库，这个库相当于一个图书馆，你可以把同一类型的研究文献全部保存在一个库当中，然后在这个库中，可以建立多种组(group)。以多精度优化为例，新建多精度优化库，直接new，然后选择相应的文件夹，保存为multi-fidelity optimization.enl。文件夹的规范可以参考<a href="#jump1">文件夹规范</a></li>
+</ul>
+<h2 id="EndNote导入文献"><a href="#EndNote导入文献" class="headerlink" title="EndNote导入文献"></a>EndNote导入文献</h2><h3 id="谷歌学术"><a href="#谷歌学术" class="headerlink" title="谷歌学术"></a><strong>谷歌学术</strong></h3><ul>
+<li><p>建立完库以后就是导入文献了，首先，在<a target="_blank" rel="noopener" href="https://scholar.google.com/">Google 学术搜索</a>上查找你研究的关键词，例如多精度优化- multi-fidelity optimization。在查询的结果中选择你要引用的文献，如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307155448894.png" alt="选择引用文献"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307160009802.png" alt="下载EndNote格式"></p>
+</li>
+<li><p>下载完成以后，直接打开下载好的enw格式文件，会自动导入到EndNote中去。</p>
+</li>
+</ul>
+<h3 id="IEEE文献"><a href="#IEEE文献" class="headerlink" title="IEEE文献"></a><strong>IEEE文献</strong></h3><ul>
+<li><p>打开<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE Xplore</a>，搜索multi-fidelity optimization，找到你想导入的参考文献。选择Cite This - RIS - download。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307161926749.png" alt="RIS文件"></p>
+</li>
+<li><p>下载完成后，直接打开文件就可以导入到EndNote。</p>
+</li>
+</ul>
+<h3 id="中国知网"><a href="#中国知网" class="headerlink" title="中国知网"></a><strong>中国知网</strong></h3><ul>
+<li><p>在<a target="_blank" rel="noopener" href="https://www.cnki.net/">中国知网</a>上查找多精度优化，建议选择高引用的文献。选择引用 - 更多引用格式<br><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307162356142.png" alt="cnki文献"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307162521043.png" alt="导出文献" style="width:67%;"></p>
+</li>
+<li><p>下载的是一个txt文件，这时候得打开EndNote，选择导入（工具栏上和下载一样的图标），然后选择EndNote import，然后选择刚刚下载的文件，就可以把cnki上的中文文献导入了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307163133397.png" alt="txt文件导入"></p>
+</li>
+</ul>
+<h2 id="导入参考文献的PDF原文"><a href="#导入参考文献的PDF原文" class="headerlink" title="导入参考文献的PDF原文"></a>导入参考文献的PDF原文</h2><ul>
+<li><p>下载原文的方式有很多，可以去学校的图书馆；可以在<a target="_blank" rel="noopener" href="https://sci-hub.mksa.top/">Sci-Hub</a>或者谷歌学术，也可以在一些文献求助群里进行求助。</p>
+</li>
+<li><p>导入原文，这里有多种导入方式：单个导入和批量导入。单个导入，在EndNote选中你要准备导入原文的文献 - Attached PDFs - 右边那个回形针导入PDF文件即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307163849480.png" alt="选择附件"></p>
+</li>
+<li><p>File Attachment 保存论文笔记，将看论文记的笔记文件，doc文件、md文件都可以拖入到File  Attachment与参考文献进行关联。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307164259637.png" alt="导入笔记" style="width:50%;"></p>
+</li>
+<li><p>批量导入和参考文献的导出可以看我的<a href="#jump2">附件</a></p>
+</li>
+</ul>
+<h2 id="jump1">文件夹规范</h2>
 
-<span class="token comment">%参数设置</span>
-epsilon <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
-lambda <span class="token operator">=</span> <span class="token number">0.6</span><span class="token punctuation">;</span> <span class="token comment">%0.6</span>
-rho <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">%1</span>
-mu <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>    <span class="token comment">%1</span>
-eta <span class="token operator">=</span> <span class="token number">0.6</span><span class="token punctuation">;</span>  <span class="token comment">%0.6</span>
-alpha_1 <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">;</span>
-alpha_2 <span class="token operator">=</span> <span class="token number">0.4</span><span class="token punctuation">;</span>
-alpha_3 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
+<p>对于论文管理来说，看得文献越多就越需要高效的管理。可以新建一个论文的工作目录，文件夹名可以取多精度优化，在里面新建一个参考文献文件夹，用来保存下载的参考文献文件，再新建一个论文文件夹，用来存放pdf原文，在多精度优化的文件夹下保存刚刚的multi-fidelity optimization.enl库文件。EndNote可以把库的参考文献和原文都压缩为一个库文件（.enlx），可以将参考文献和原文直接迁移到别的电脑。是不是很方便<span class="github-emoji"><span>😘</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f618.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/image-20210307170813932.png" alt="我的文件夹"></p>
+<h2 id="jump2"> 附件</h2>
 
-<span class="token comment">%迭代学习过程</span>
-i_n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">%迭代次数</span>
-<span class="token function">y</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>i_n<span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>i_n
-	<span class="token keyword">for</span> t <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">100</span> <span class="token comment">%系统运行的时间，离散表示</span>
-		<span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">1</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-		<span class="token keyword">elseif</span> k <span class="token operator">==</span> <span class="token number">2</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>eta<span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">elseif</span> k <span class="token operator">==</span> <span class="token number">3</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>eta<span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">else</span> 
-			<span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>mu<span class="token operator">*</span>eta<span class="token operator">/</span><span class="token punctuation">(</span>mu <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>alpha_1<span class="token operator">*</span><span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">+</span> alpha_2<span class="token operator">*</span><span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">+</span> alpha_3<span class="token operator">*</span><span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">end</span>
-		<span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">1</span>
-			<span class="token function">u</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-		<span class="token keyword">else</span>
-			<span class="token function">u</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>rho<span class="token operator">*</span><span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>lambda <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">e</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">end</span>
-        <span class="token keyword">if</span> k <span class="token operator">&gt;=</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> epsilon <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> epsilon<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-			<span class="token function">phi</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">end</span>
-
-		<span class="token comment">%这里是设置系统函数，是对无模型系统的一个近似非线性模拟</span>
-		<span class="token keyword">if</span> t <span class="token operator">&lt;=</span> <span class="token number">50</span>
-			<span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">3</span><span class="token punctuation">;</span>
-		<span class="token keyword">else</span>
-			<span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0.1</span><span class="token operator">*</span><span class="token function">round</span><span class="token punctuation">(</span>t<span class="token operator">/</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">u</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token function">norm</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">end</span>
-		<span class="token function">e</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">yd</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">end</span>
-<span class="token keyword">end</span>
-<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>i_n
-	<span class="token function">e_max</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">e</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span>
-
-<span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 
-<span class="token function">plot</span><span class="token punctuation">(</span>yd<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> hold on<span class="token punctuation">;</span>
-<span class="token function">plot</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>i_n<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">plot</span><span class="token punctuation">(</span>e_max<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'error of time k'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h3><p>仿真结果如下：</p>
-<p>迭代6：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173203853.jpg" alt="迭代6次"></p>
-<p>30次：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173233357.jpg" alt="迭代30次"></p>
-<p>60次：</p>
-<p><img src="https://pic-pool-1302938551.cos.ap-nanjing.myqcloud.com/image/20201008173245469.jpg" alt="迭代60次"></p>
-<p>本文完，谢谢阅读。</p>
+<p>有关文献分组，库文件压缩和导出的操作，可以下载这个<a target="_blank" rel="noopener" href="https://wwa.lanzous.com/i3vbJmmycuf">附件PPT</a>。</p>
 
                 
             </div>
@@ -567,7 +523,7 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://happy2h.top/posts/2076e5fc/">https://happy2h.top/posts/2076e5fc/</a>
+                    <a href="https://happy2h.top/posts/cda94c23/">https://happy2h.top/posts/cda94c23/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -605,8 +561,8 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/matlab-%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">matlab, 算法</span>
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">学习工具</span>
                                 </a>
                             
                         </div>
@@ -917,43 +873,45 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/d96374af/">
+                <a href="/posts/cda94c23/">
                     <div class="card-image">
                         
-                        <img src="https://i.loli.net/2021/03/07/Xm5qGNKxDAQSBCd.jpg" class="responsive-img" alt="2021-02-11-next博客添加阿里云域名和收录">
+                        <img src="https://cdn.jsdelivr.net/gh/happy2h/PicPool_cdn/24.jpg" class="responsive-img" alt="2021-03-07-EndNoteX9使用教程">
                         
-                        <span class="card-title">2021-02-11-next博客添加阿里云域名和收录</span>
+                        <span class="card-title">2021-03-07-EndNoteX9使用教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客绑定域名和Google和百度收录
+                            Endnote使用教程技巧
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/NEXT%E4%B8%BB%E9%A2%98/" class="post-category">
-                                    NEXT主题
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%E6%95%99%E7%A8%8B/" class="post-category">
+                                    科研工具教程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo-next%E4%B8%BB%E9%A2%98-SEO/">
-                        <span class="chip bg-color">hexo-next主题, SEO</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">学习工具</span>
                     </a>
                     
                 </div>
@@ -967,32 +925,28 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/c4e38499/">
+                <a href="/posts/a9b6cdae/">
                     <div class="card-image">
                         
-                        <img src="https://i.loli.net/2021/03/07/rdQXq8IN2H7KAcC.jpg" class="responsive-img" alt="2020-02-07-现代数字信号处理实验">
+                        <img src="https://i.loli.net/2021/03/07/hAIF5vsTHfQKwdP.jpg" class="responsive-img" alt="2021-02-28-记一次失败的U盘拯救过程">
                         
-                        <span class="card-title">2020-02-07-现代数字信号处理实验</span>
+                        <span class="card-title">2021-02-28-记一次失败的U盘拯救过程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            现代数字信号处理实验
+                            经过几天的努力，U盘还是壮烈牺牲了
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%99%E5%AD%A6%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    教学课程
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Nickxie
                             
                         </span>
                     </div>
@@ -1000,8 +954,8 @@ i_n <span class="token operator">=</span> <span class="token number">100</span><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%99%E5%AD%A6%E5%AE%9E%E9%AA%8C/">
-                        <span class="chip bg-color">教学实验</span>
+                    <a href="/tags/U%E7%9B%98%E9%87%8F%E4%BA%A7/">
+                        <span class="chip bg-color">U盘量产</span>
                     </a>
                     
                 </div>
