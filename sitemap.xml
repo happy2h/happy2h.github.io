@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://happy2h.top/posts/3b2141d5/</loc>
+    
+    <lastmod>2021-03-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://happy2h.top/posts/cda94c23/</loc>
     
     <lastmod>2021-03-09</lastmod>
@@ -262,6 +269,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://happy2h.top/tags/hexo-matery%E4%B8%BB%E9%A2%98/</loc>
+    <lastmod>2021-03-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -301,6 +315,13 @@
   
   <url>
     <loc>https://happy2h.top/categories/%E6%97%A0%E7%97%85%E5%91%BB%E5%90%9F/</loc>
+    <lastmod>2021-03-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://happy2h.top/categories/bug%E4%BF%AE%E5%A4%8D%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2021-03-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
