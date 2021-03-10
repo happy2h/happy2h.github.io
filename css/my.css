@@ -1,0 +1,46 @@
+/* Here is your custom css styles. */
+/* 1，2序号彩色动态化 */
+#articleContent ol{
+    list-style: none;  /* 隐藏原来的 1. 2. 等序号样式 */
+    counter-reset: ol-li;
+}
+
+#articleContent ol li:before{
+    display: block;
+    float: left;
+    width: 18px;   /* 宽度和高度需要根据自己的字体大小进行修正 */
+    height: 18px;
+    line-height: 18px;
+    margin: 5px 5px 0 0;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    background-color: #597ef7;
+    border-radius: 50%;
+    text-align: center;
+    content: counter(ol-li);
+    counter-increment: ol-li;
+    transition: all .5s;
+}
+
+#articleContent ol li:hover::before{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+}
+
+.github-emoji img{
+    display: none;
+}
+.github-emoji {
+    display: inline-block;
+  }
+
+/* 引用块自定义 */
+blockquote ul,
+blockquote ol {
+      margin-left:0;
+  }
