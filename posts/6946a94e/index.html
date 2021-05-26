@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <meta name="author" content="Nick XIE">
+  
+  
+  
+  
+  
+    <link rel="alternate" href="/atom.xml " title="NickXIE&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <title>无模型自适应ILC原理及代码实现 | NickXIE&#39;s Blog</title>
+
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/partial/dark.css" >
+
+  
+  
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/partial/highlight/atom-one-light.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/a2396837/CDN@latest/css/iconfont.css">
+    
+  
+
+  
+    <script src="/js/todark.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+</html>
+    
+<div class="nav index" style="height: 60px;">
+    <div class="title animated fadeInDown">
+        <div class="layui-container">
+                <div class="nav-title"><a href="/" title="NickXIE&#39;s Blog">NickXIE&#39;s Blog</a></div>
+            <div class="nav-list">
+                <button> <span class=""></span><span style="display: block;"></span><span class=""></span> </button>
+                <ul class="layui-nav" lay-filter="">
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/search/ ">
+                            <i class=" fas fa-search-plus " style="color: rgb(3 169 244);"></i>
+                            <span class="layui-nav-item-name">搜索</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/ ">
+                            <i class=" fab fa-fort-awesome " style="color: rgb(255 107 107);"></i>
+                            <span class="layui-nav-item-name">首页</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/archives/ ">
+                            <i class=" fas fa-archive " style="color: rgb(10 189 227);"></i>
+                            <span class="layui-nav-item-name">归档</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/tags/ ">
+                            <i class=" fas fa-hashtag " style="color: rgb(254 202 87);"></i>
+                            <span class="layui-nav-item-name">标签</span>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="layui-nav-item" id="btn-toggle-dark">🌙</li>
+                    
+                    <span class="layui-nav-bar" style="left: 342px; top: 78px; width: 0px; opacity: 0;"></span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<header class="header">
+        
+            <div class="logo">
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/avator_new.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></a>
+            </div>
+         
+    </div>
+     
+    
+            <div class="social">
+                
+                        <a class="social-icon" href="https://github.com/happy2h" target="_blank" title="Github">
+                            <i class="iconfont icon-GitHub" aria-hidden="true"></i>
+                          </a>
+                 
+                        <a class="social-icon" href="mailto:893956235@qq.com" target="_blank" title="Email">
+                            <i class="iconfont icon-email" aria-hidden="true"></i>
+                          </a>
+                 
+                        <a class="social-icon" href="https://space.bilibili.com/69568635" target="_blank" title="Bilibili">
+                            <i class="iconfont icon-bilibili" aria-hidden="true"></i>
+                          </a>
+                 
+            </div>
+     
+</header>
+
+    
+<article id="post">
+  <div class="post-title">无模型自适应ILC原理及代码实现</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="发表于 2021.02.05"><i class="far fa-calendar-alt"></i> 2021.02.05</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="更新于 2021.05.26"><i class="far fa-calendar-check"></i> 2021.05.26</span>
+      </div>
+     
+    
+      <div class="post-meta-item categories">
+        
+          <i class="fas fa-inbox article-meta__icon"></i> <a href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">控制算法学习</a>
+        
+      </div>
+     
+    
+</div>
+
+
+  
+  <div class="content">
+        <div><h2 id="2021-02-05-无模型自适应ILC原理及代码实现"><a href="#2021-02-05-无模型自适应ILC原理及代码实现" class="headerlink" title="2021-02-05-无模型自适应ILC原理及代码实现"></a>2021-02-05-无模型自适应ILC原理及代码实现</h2><p>这里学习的是很老的一篇论文《基于无模型自适应控制的反馈-前馈迭代学习控制系统收敛性研究》，作者是晏静文和侯忠生，大家有兴趣可以找来看看。这里主要介绍的无模型自适应的控制率的matlab代码仿真实现和结果分析。<br>首先数值给出了问题定义，给出m维输入q维输入的非线性系统：</p>
+<script type="math/tex; mode=display">
+y_{n}(k+1)=f(u_{n}(k),y_{n})(k),\xi(k),k)</script><p>两个假设是为了收敛性证明提出的，这里不详细讲（其实收敛性推导我也没推），然后对于该系统设计了前馈和反馈控制律如下：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210418112510550.png" alt="image-20210418112510550"></p>
+<p>终于把公式打完了，latex真麻烦（对于第一次用的人来说）。可以看到控制部分有两部分组成，前馈和反馈，外加伪偏导迭代公式。<br>仿真系统如下：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210418112537922.png" alt="image-20210418112537922"></p>
+<p>期望曲线：</p>
+<p><img src= "/img/loading.gif" data-src="D:\BLOG\source\_posts\2021-02-05-无模型自适应ILC原理及代码实现.assets\image-20210418112554388.png" alt="image-20210418112554388"></p>
+<p>基于控制律和系统编写matlab代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 期望轨迹</span></span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">	<span class="keyword">if</span> k &lt; <span class="number">250</span></span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*(<span class="number">-1</span>).^(<span class="built_in">round</span>(k/<span class="number">100</span>));</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		yd(k+<span class="number">1</span>) = <span class="number">0.5</span>*<span class="built_in">sin</span>((k*<span class="built_in">pi</span>)/<span class="number">100</span>) + <span class="number">0.3</span>*<span class="built_in">cos</span>((k*<span class="built_in">pi</span>)/<span class="number">50</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 参数设置</span></span><br><span class="line">epsilon = <span class="number">0.01</span>;</span><br><span class="line">eta = <span class="number">1</span>;</span><br><span class="line">rho = <span class="number">0.2</span>;</span><br><span class="line">lamda = <span class="number">1</span>;</span><br><span class="line">mu = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 控制过程</span></span><br><span class="line">i_n = <span class="number">60</span>;  <span class="comment">%迭代次数</span></span><br><span class="line">y(<span class="number">1</span>:i_n,<span class="number">1</span>:<span class="number">500</span>) = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">	<span class="keyword">for</span> k = <span class="number">1</span>:<span class="number">1</span>:<span class="number">500</span></span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			phi(<span class="built_in">i</span>,k) = <span class="number">0.4</span>;</span><br><span class="line">		<span class="keyword">elseif</span> k == <span class="number">2</span></span><br><span class="line">			phi(<span class="built_in">i</span>,k) = phi(<span class="built_in">i</span>,k<span class="number">-1</span>) + (eta*(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - <span class="number">0</span>)/(mu + norm(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - <span class="number">0</span>)^<span class="number">2</span>))*(y(<span class="built_in">i</span>,k) - <span class="number">0</span> - phi(<span class="built_in">i</span>,k<span class="number">-1</span>)*(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - <span class="number">0</span>));</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			phi(<span class="built_in">i</span>,k) = phi(<span class="built_in">i</span>,k<span class="number">-1</span>) + (eta*(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - ub(<span class="built_in">i</span>,k<span class="number">-2</span>))/(mu + norm(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - ub(<span class="built_in">i</span>,k<span class="number">-2</span>))^<span class="number">2</span>))*(y(<span class="built_in">i</span>,k) - y(<span class="built_in">i</span>,k<span class="number">-1</span>) - phi(<span class="built_in">i</span>,k<span class="number">-1</span>)*(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - ub(<span class="built_in">i</span>,k<span class="number">-2</span>)));</span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">i</span> == <span class="number">1</span></span><br><span class="line">			uf(<span class="built_in">i</span>,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			uf(<span class="built_in">i</span>,k) = uf(<span class="built_in">i</span><span class="number">-1</span>,k) + <span class="number">0.4</span>*e(<span class="built_in">i</span><span class="number">-1</span>,k+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line">		<span class="keyword">if</span> k == <span class="number">1</span></span><br><span class="line">			ub(<span class="built_in">i</span>,k) = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			ub(<span class="built_in">i</span>,k) = ub(<span class="built_in">i</span>,k<span class="number">-1</span>) + (rho*phi(<span class="built_in">i</span>,k)/(lamda + norm(phi(<span class="built_in">i</span>,k))^<span class="number">2</span>))*(yd(k+<span class="number">1</span>) - y(<span class="built_in">i</span>,k));</span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line">		<span class="keyword">if</span> k&gt;<span class="number">2</span> &amp;&amp; (phi(<span class="built_in">i</span>,k) &lt;= epsilon || (<span class="built_in">abs</span>(ub(<span class="built_in">i</span>,k<span class="number">-1</span>) - ub(<span class="built_in">i</span>,k<span class="number">-2</span>)) &lt;= epsilon))</span><br><span class="line">			phi(<span class="built_in">i</span>,k) = phi(<span class="built_in">i</span>,<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line">		u(<span class="built_in">i</span>,k) = uf(<span class="built_in">i</span>,k) + ub(<span class="built_in">i</span>,k);</span><br><span class="line">		<span class="comment">%系统函数</span></span><br><span class="line">		<span class="keyword">if</span> k &lt;<span class="number">250</span> </span><br><span class="line">			y(<span class="built_in">i</span>,k+<span class="number">1</span>) = y(<span class="built_in">i</span>,k)*u(<span class="built_in">i</span>,k)/(<span class="number">1</span> + norm(y(<span class="built_in">i</span>,k))^<span class="number">2</span>) + (u(<span class="built_in">i</span>,k) + <span class="number">0.1</span>*<span class="built_in">round</span>(k/<span class="number">500</span>)*<span class="built_in">sin</span>(y(<span class="built_in">i</span>,k)))^<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			y(<span class="built_in">i</span>,k+<span class="number">1</span>) = y(<span class="built_in">i</span>,k)*u(<span class="built_in">i</span>,k)^<span class="number">3</span>/(<span class="number">1</span> + norm(y(<span class="built_in">i</span>,k))^<span class="number">2</span>) + u(<span class="built_in">i</span>,k)^<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line">		e(<span class="built_in">i</span>,k+<span class="number">1</span>) = yd(k+<span class="number">1</span>) - y(<span class="built_in">i</span>,k+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%误差</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> =<span class="number">1</span>:<span class="number">1</span>:i_n</span><br><span class="line">e_min(<span class="built_in">i</span>) = <span class="built_in">max</span>(<span class="built_in">abs</span>(e(<span class="built_in">i</span>,:)));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>) </span><br><span class="line"><span class="built_in">plot</span>(yd,<span class="string">&#x27;r&#x27;</span>); <span class="built_in">hold</span> on;</span><br><span class="line"><span class="built_in">plot</span>(y(i_n,:),<span class="string">&#x27;b&#x27;</span>); title(<span class="string">&#x27;µü´ú10´Î&#x27;</span>);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(e_min);title(<span class="string">&#x27;error of time k&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>代码就是按照控制律来写的，还是自己敲一下印象深刻。<br>仿真结果：迭代10次结果：<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20201007175304942.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="迭代10次结果"></p>
+<p>50次迭代：<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/2020100717522346.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="迭代50次结果"><br>100次迭代：<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20201007175246144.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="迭代100次"><br>100次迭代 最大误差和最下误差收敛结果：<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20201007175333554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="误差收敛曲线"><br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20201007175341448.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTc0NTc4,size_16,color_FFFFFF,t_70#pic_center" alt="误差收敛曲线"><br>结束。</p>
+</div>
+        
+          <div class="post-copyright">
+                  <div class="copyright-item">
+                      <span> 作者: Nick XIE</span>
+                  </div>
+                  <div class="copyright-item">
+                      <span> 链接: <a href="https://happy2h.top/posts/6946a94e/">https://happy2h.top/posts/6946a94e/</a></span>
+                  </div>
+                  <div class="copyright-item">
+                      <span> 声明: 本博客所有文章除特别声明外，均采用许可协议 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> 转载请注明出处！</span>
+                  </div>
+          </div>
+        
+  </div>
+
+  <div class="share-reward">
+    <div class="share">
+        
+
+      </div>
+        <div class="reward">
+          
+  <div style="padding: 10px 0; margin-left: 20px; width: 90%; text-align: center;">
+    <div class="reward-content">
+        <ul id="donateBox" class="list pos-a">
+           
+          
+            <li id="AliPay" title="支付宝"><img data-img="/img/alipay.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></img></li>
+               
+                 
+            <li id="WeChat" title="微信"><img date-img="/img/wechat.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></img></li>
+                      
+          </ul>
+        <div id="QRBox" class="pos-f left-100">
+          <div id="MainBox"></div>
+        </div>
+    </div>
+  </div>
+  
+        </div>
+    </div>
+    
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/matlab/" class="tag">matlab</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/posts/c4e38499/" >2020-02-07-现代数字信号处理实验<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+    </div>
+      
+
+
+
+
+</article>
+
+    
+<a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    
+
+
+
+
+
+
+    
+<div id="bottom-outer">
+    <div id="bottom-inner">
+        © 2020 <i class="fa fa-heart" id="heart"></i> Nick XIE 
+        <br>
+        Powered by 
+        <a target="_blank" rel="noopener" href="http://hexo.io">hexo</a> | Theme is <a target="_blank" rel="noopener" href="https://github.com/a2396837/hexo-theme-blank/">blank</a>
+        
+    </div>  
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.min.js"></script>
+
+
+
+  
+    <script src="/js/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  
+
+ 
+
+  <script src="/js/local-search.js"></script>
+<script type="text/javascript">      
+  var search_path = "search.xml";
+if (search_path.length == 0) {
+  search_path = "search.xml";
+}
+var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+  
+
+
+  <script>
+    window.lazyLoadOptions = {
+      elements_selector: 'img',
+      threshold: 0
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>   
+  
+
+
+  <script>
+    var images = $('img').not('.nav-logo img').not('.card img').not($('a>img')).not('.reward-content img')
+    images.each(function (i, o) {
+      var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
+      $(o).wrap(`<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${$(o).attr('alt')}" class="fancybox"></a>`)
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+  <script>
+        $().fancybox({
+      selector: '[data-fancybox]',
+      loop: true,
+      transitionEffect: 'slide',
+      protect: true,
+      buttons: ['slideShow', 'fullScreen', 'thumbs', 'close']
+    })
+  </script>   
+  
+
+
+  <script>
+  if (!window.MathJax) {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]],
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+              const display = !!node.type.match(/; *mode=display/)
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+              const text = document.createTextNode('')
+              node.parentNode.replaceChild(text, node)
+              math.start = {node: text, delim: '', n: 0}
+              math.end = {node: text, delim: '', n: 0}
+              doc.math.push(math)
+            }
+          }, '']
+        }
+      }
+    }
+    
+    var script = document.createElement('script')
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"
+    script.id = 'MathJax-script'
+    script.async = true
+    document.head.appendChild(script)
+  } else {
+    MathJax.startup.document.state(0)
+    MathJax.texReset()
+    MathJax.typeset()
+  }
+  </script>
+  
+
+
+
+
+  <script>
+    jQuery(document).ready(function () {
+      var QRBox = $('#QRBox');
+      var MainBox = $('#MainBox');
+      var AliPayQR = '/img/alipay.jpg';
+      var WeChanQR = '/img/wechat.jpg';
+
+      function showQR(QR) {
+        if (QR) {
+          MainBox.css('background-image', 'url(' + QR + ')');
+        }
+        $('#donateBox').addClass('blur');
+        QRBox.fadeIn(300, function (argument) {
+          MainBox.addClass('showQR');
+        });
+      }
+
+      $('#donateBox>li').click(function (event) {
+        var thisID = $(this).attr('id');
+        if (thisID === 'AliPay') {
+          showQR(AliPayQR);
+        } else if (thisID === 'WeChat') {
+          showQR(WeChanQR);
+        }
+      });
+
+      MainBox.click(function (event) {
+        MainBox.removeClass('showQR').addClass('hideQR');
+        setTimeout(function (a) {
+          QRBox.fadeOut(300, function (argument) {
+            MainBox.removeClass('hideQR');
+          });
+          $('#DonateText,#donateBox,#github').removeClass('blur');
+        }, 600);
+
+      });
+    });
+  </script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script>
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+<script>
+!function (e, t, a) {
+  var initCopyCode = function(){
+    var copyHtml = '';
+    copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+    copyHtml += '  <i class="fa fa-clipboard"></i><span>复制</span>';
+    copyHtml += '</button>';
+    $(".highlight .code pre").before(copyHtml);
+    new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+  }
+  initCopyCode();
+}(window, document);
+</script>  
+  
+
+<script>
+  var btntop = $('#gotop');
+  btntop.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, '300');
+  });
+
+  var $table = $('.content table').not($('figure.highlight > table'))
+$table.each(function () {
+  $(this).wrap('<div class="table-wrap"></div>')
+})
+</script>
+
+
+
+</html>

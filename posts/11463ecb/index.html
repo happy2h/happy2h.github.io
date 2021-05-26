@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <meta name="author" content="Nick XIE">
+  
+  
+  
+  
+  
+    <link rel="alternate" href="/atom.xml " title="NickXIE&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <title>2021-03-15-labview连接mysql | NickXIE&#39;s Blog</title>
+
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/partial/dark.css" >
+
+  
+  
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/partial/highlight/atom-one-light.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/a2396837/CDN@latest/css/iconfont.css">
+    
+  
+
+  
+    <script src="/js/todark.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+</html>
+    
+<div class="nav index" style="height: 60px;">
+    <div class="title animated fadeInDown">
+        <div class="layui-container">
+                <div class="nav-title"><a href="/" title="NickXIE&#39;s Blog">NickXIE&#39;s Blog</a></div>
+            <div class="nav-list">
+                <button> <span class=""></span><span style="display: block;"></span><span class=""></span> </button>
+                <ul class="layui-nav" lay-filter="">
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/search/ ">
+                            <i class=" fas fa-search-plus " style="color: rgb(3 169 244);"></i>
+                            <span class="layui-nav-item-name">搜索</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/ ">
+                            <i class=" fab fa-fort-awesome " style="color: rgb(255 107 107);"></i>
+                            <span class="layui-nav-item-name">首页</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/archives/ ">
+                            <i class=" fas fa-archive " style="color: rgb(10 189 227);"></i>
+                            <span class="layui-nav-item-name">归档</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/tags/ ">
+                            <i class=" fas fa-hashtag " style="color: rgb(254 202 87);"></i>
+                            <span class="layui-nav-item-name">标签</span>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="layui-nav-item" id="btn-toggle-dark">🌙</li>
+                    
+                    <span class="layui-nav-bar" style="left: 342px; top: 78px; width: 0px; opacity: 0;"></span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<header class="header">
+        
+            <div class="logo">
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/avator_new.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></a>
+            </div>
+         
+    </div>
+     
+    
+            <div class="social">
+                
+                        <a class="social-icon" href="https://github.com/happy2h" target="_blank" title="Github">
+                            <i class="iconfont icon-GitHub" aria-hidden="true"></i>
+                          </a>
+                 
+                        <a class="social-icon" href="mailto:893956235@qq.com" target="_blank" title="Email">
+                            <i class="iconfont icon-email" aria-hidden="true"></i>
+                          </a>
+                 
+                        <a class="social-icon" href="https://space.bilibili.com/69568635" target="_blank" title="Bilibili">
+                            <i class="iconfont icon-bilibili" aria-hidden="true"></i>
+                          </a>
+                 
+            </div>
+     
+</header>
+
+    
+<article id="post">
+  <div class="post-title">2021-03-15-labview连接mysql</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="发表于 2021.03.15"><i class="far fa-calendar-alt"></i> 2021.03.15</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="更新于 2021.05.26"><i class="far fa-calendar-check"></i> 2021.05.26</span>
+      </div>
+     
+    
+      <div class="post-meta-item categories">
+        
+          <i class="fas fa-inbox article-meta__icon"></i> <a href="/categories/Labview%E4%BB%BF%E7%9C%9F/">Labview仿真</a>
+        
+      </div>
+     
+    
+</div>
+
+
+  
+  <div class="content">
+        <div><h3 id="相关软件的准备"><a href="#相关软件的准备" class="headerlink" title="相关软件的准备"></a>相关软件的准备</h3><p>我的软件环境是LabVIEW 2018（32位）的，这个很重要，因为不同位数的labview需要安装不同位数的Connector odbc，还需要安装visio的运行环境，这个需要提前准备。</p>
+<p>Mysql的安装过程可以看这篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/leexueming_gdut/article/details/105983388">blog</a>，写的非常详细，我也是按照这篇博客一步一步来的。</p>
+<p>安装完相关的软件以后，就是要进行相关的数据库创建和建立连接过程了。</p>
+<h3 id="ODBC的配置"><a href="#ODBC的配置" class="headerlink" title="ODBC的配置"></a>ODBC的配置</h3><p>如果你安装的是32位ODBC的话，需要打开32位的ODBC，可以在微软的搜索框直接搜索，</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315230249326.png"  style="zoom: 67%;" /></p>
+<p>打开以后在用户DSN下点击添加：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315230512145.png"  style="zoom:67%;" /></p>
+<p>选择mysql odbc ansi driver：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315230632432.png"  style="zoom:67%;" /></p>
+<p>进行如下配置：</p>
+<ol>
+<li>Data Source Name：你的数据库名</li>
+<li>Description：描述，可以为空</li>
+<li>选择TCP/IP Serve，将Port前的ip地址设置位localhost或者127.0.0.1</li>
+<li>User：mysql安装过程中的用户名，默认的话是root</li>
+<li>Password：安装mysql中设置的密码</li>
+<li>Database：选择相应的数据库（初次配置先别选，等用navicat创建以后再选）</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315230815692.png" alt=""></p>
+<p>配置好以后，点击Test，会显示successful。然后点击OK，至此odbc配置完成。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315231346632.png" alt=""></p>
+<h3 id="Navicat软件设置"><a href="#Navicat软件设置" class="headerlink" title="Navicat软件设置"></a>Navicat软件设置</h3><p>选择这种可视化的数据库管理软件，navicat的安装配置网上有很多，但是别下载到有毒的了，这里分享一下我用的。<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t2GyoVOtAEZzYqbGEtVWtw">度盘</a>，提取码是520y。</p>
+<p>打开navicat选择新建连接 - mysql，连接名随便选，填写密码点击测试，会显示测试通过。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315232552197.png" style="zoom:67%;" /></p>
+<p>连接建立好以后，选择新建数据库</p>
+<ol>
+<li>数据库名：任意</li>
+<li>字符集选择utf8，支持中文</li>
+<li>排序规则选择utf8-general-ci</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315232650133.png" alt=""></p>
+<p>新建一个user表，配置主键id为自动递增。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/1615822149175.png"  style="zoom:67%;" /></p>
+<p>在odbc里可以把database选择为刚刚创建的数据库，至此navicat数据表搭建完成。</p>
+<h3 id="Labview的访问过程"><a href="#Labview的访问过程" class="headerlink" title="Labview的访问过程"></a>Labview的访问过程</h3><p>关于labview连接mysql有两个工具包，第一个是官方的database toolkit，还有一个是第三方的labsql，我都试了一下，感觉还是官方的好用。</p>
+<h4 id="Database-toolkit访问"><a href="#Database-toolkit访问" class="headerlink" title="Database toolkit访问"></a>Database toolkit访问</h4><p>打开labview，选择新建空白vi，在互连接口 - Database中选择相应vi。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315233404638.png" alt=""></p>
+<p>添加如下几个vi，依次是：DB tool connection、DB tool executeQuery.vi、DB Tools Fetch Recordset、DB Tools Free Object和DB Tools Close。（方便好找）</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315233619027.png" alt=""></p>
+<p>添加数据连接，选择工具 - creat data link。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315233955953.png"  style="zoom:67%;" /></p>
+<p>数据连接的配置：</p>
+<ol>
+<li>指定数据源：这个要选择ODBC工具中在用户DSN下添加的连接名称</li>
+<li>用户名称密码是mysql安装时配置的，把允许保存密码勾上</li>
+<li>输入要使用的初始目录：选择在navicat里创建的数据库名称</li>
+</ol>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315234133369.png" alt=""></p>
+<p>配置好以后，点击测试连接，显示successful，点击确定。会提示你保存udl文件的，记住保存路径。</p>
+<p>在connection vi上鼠标右键创建常量，然后粘贴udl保存的路径和文件名，如下所示：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315235433875.png" alt=""></p>
+<p>因为查询到的数据是变体，所以加上一个变体转换为数据的vi（名称就是变体转换为数据），如下配置，蓝色的是二维数组（字符型）的常量和显示器vi。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315235249459.png"  style="zoom:67%;" /></p>
+<p>然后添加字符串常量，里面写上相应的sql crud语句。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315235628217.png" alt=""></p>
+<p>点击运行，查看显示结果：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315235701266.png" alt=""></p>
+<h4 id="Labsql访问"><a href="#Labsql访问" class="headerlink" title="Labsql访问"></a>Labsql访问</h4><p>首先在labsql官网上下载相关的工具包，<a target="_blank" rel="noopener" href="http://jeffreytravis.com/lost/labsql.html">Labsql</a>，<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1YOp95e2cAoXjqoPqyDQbfw">百度网盘地址</a>，提取码v3aq。将下载好的压缩包解压，放到Labview的安装目录下的National Instruments\LabVIEW 2018\user.lib这个文件夹下面，然后重启labview进行调试，在用户下应该会显示labsql’的工具包。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210319081251898.png" alt="image-20210319081251898"></p>
+<p>使用Labsql同样也得先配置ODBC中用户DSN，这个步骤与上面类似。创建好DSN以后，打开vi背面板，画出如下的简单程序。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210319082138082.png" alt="image-20210319082138082"></p>
+<ol>
+<li>Creat Sonnection：创建连接</li>
+<li>Open Connection：打开连接</li>
+<li>SQL Execute进行sql语句的执行，里面的布尔常量T表示是否需要返回数据</li>
+<li>close Conection关闭链接</li>
+<li>Destroy Connection销毁链接</li>
+<li>加一个清除错误和错误显示。</li>
+</ol>
+<p>在这第二步vi里，直接创建常量或者输入控件，将之前创建的用户DSN的名字作为字符常量输入，而不是像database toolkit那样创建数据链接，然后在输入udl链接路径。</p>
+<p>在Command Text里写上语句查询，运行可以返回数据，同样运行成功。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210319082556641.png" alt="image-20210319082556641"></p>
+<h3 id="其他语句的测试效果"><a href="#其他语句的测试效果" class="headerlink" title="其他语句的测试效果"></a>其他语句的测试效果</h3><p>相应的sql语言：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> blog_exple.user;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">values</span>(<span class="number">4</span>,<span class="string">&#x27;小谢&#x27;</span>,<span class="string">&#x27;23&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">set</span> name <span class="operator">=</span> <span class="string">&#x27;nick&#x27;</span>,age <span class="operator">=</span> <span class="string">&#x27;23&#x27;</span>;</span><br><span class="line">update <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="string">&#x27;23&#x27;</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;nick&#x27;</span>;</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210315235841590.png" alt=""></p>
+<p>添加两条记录：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210316000042343.png" alt=""></p>
+<p>更新一条记录：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210316000128221.png" alt=""></p>
+<p>删除一条记录：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210316000228192.png" alt=""></p>
+<p>简单的基本操作已经可以实现，慢慢继续学习更复杂的操作吧！:stuck_out_tongue_winking_eye:</p>
+</div>
+        
+          <div class="post-copyright">
+                  <div class="copyright-item">
+                      <span> 作者: Nick XIE</span>
+                  </div>
+                  <div class="copyright-item">
+                      <span> 链接: <a href="https://happy2h.top/posts/11463ecb/">https://happy2h.top/posts/11463ecb/</a></span>
+                  </div>
+                  <div class="copyright-item">
+                      <span> 声明: 本博客所有文章除特别声明外，均采用许可协议 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> 转载请注明出处！</span>
+                  </div>
+          </div>
+        
+  </div>
+
+  <div class="share-reward">
+    <div class="share">
+        
+
+      </div>
+        <div class="reward">
+          
+  <div style="padding: 10px 0; margin-left: 20px; width: 90%; text-align: center;">
+    <div class="reward-content">
+        <ul id="donateBox" class="list pos-a">
+           
+          
+            <li id="AliPay" title="支付宝"><img data-img="/img/alipay.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></img></li>
+               
+                 
+            <li id="WeChat" title="微信"><img date-img="/img/wechat.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></img></li>
+                      
+          </ul>
+        <div id="QRBox" class="pos-f left-100">
+          <div id="MainBox"></div>
+        </div>
+    </div>
+  </div>
+  
+        </div>
+    </div>
+    
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/LabVIEW/" class="tag">LabVIEW</a>
+      
+        <i class="fas fa-tag"></i> <a href="/tags/mysql/" class="tag">mysql</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/posts/1421755c/" >2021-03-22-Labiew连接mysql写入和读取连续数据<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/posts/cda94c23/" >2021-03-07-EndNoteX9使用教程<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
+      
+
+
+
+
+</article>
+
+    
+<a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    
+
+
+
+
+
+
+    
+<div id="bottom-outer">
+    <div id="bottom-inner">
+        © 2020 <i class="fa fa-heart" id="heart"></i> Nick XIE 
+        <br>
+        Powered by 
+        <a target="_blank" rel="noopener" href="http://hexo.io">hexo</a> | Theme is <a target="_blank" rel="noopener" href="https://github.com/a2396837/hexo-theme-blank/">blank</a>
+        
+    </div>  
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.min.js"></script>
+
+
+
+  
+    <script src="/js/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  
+
+ 
+
+  <script src="/js/local-search.js"></script>
+<script type="text/javascript">      
+  var search_path = "search.xml";
+if (search_path.length == 0) {
+  search_path = "search.xml";
+}
+var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+  
+
+
+  <script>
+    window.lazyLoadOptions = {
+      elements_selector: 'img',
+      threshold: 0
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>   
+  
+
+
+  <script>
+    var images = $('img').not('.nav-logo img').not('.card img').not($('a>img')).not('.reward-content img')
+    images.each(function (i, o) {
+      var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
+      $(o).wrap(`<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${$(o).attr('alt')}" class="fancybox"></a>`)
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+  <script>
+        $().fancybox({
+      selector: '[data-fancybox]',
+      loop: true,
+      transitionEffect: 'slide',
+      protect: true,
+      buttons: ['slideShow', 'fullScreen', 'thumbs', 'close']
+    })
+  </script>   
+  
+
+
+  <script>
+  if (!window.MathJax) {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]],
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+              const display = !!node.type.match(/; *mode=display/)
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+              const text = document.createTextNode('')
+              node.parentNode.replaceChild(text, node)
+              math.start = {node: text, delim: '', n: 0}
+              math.end = {node: text, delim: '', n: 0}
+              doc.math.push(math)
+            }
+          }, '']
+        }
+      }
+    }
+    
+    var script = document.createElement('script')
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"
+    script.id = 'MathJax-script'
+    script.async = true
+    document.head.appendChild(script)
+  } else {
+    MathJax.startup.document.state(0)
+    MathJax.texReset()
+    MathJax.typeset()
+  }
+  </script>
+  
+
+
+
+
+  <script>
+    jQuery(document).ready(function () {
+      var QRBox = $('#QRBox');
+      var MainBox = $('#MainBox');
+      var AliPayQR = '/img/alipay.jpg';
+      var WeChanQR = '/img/wechat.jpg';
+
+      function showQR(QR) {
+        if (QR) {
+          MainBox.css('background-image', 'url(' + QR + ')');
+        }
+        $('#donateBox').addClass('blur');
+        QRBox.fadeIn(300, function (argument) {
+          MainBox.addClass('showQR');
+        });
+      }
+
+      $('#donateBox>li').click(function (event) {
+        var thisID = $(this).attr('id');
+        if (thisID === 'AliPay') {
+          showQR(AliPayQR);
+        } else if (thisID === 'WeChat') {
+          showQR(WeChanQR);
+        }
+      });
+
+      MainBox.click(function (event) {
+        MainBox.removeClass('showQR').addClass('hideQR');
+        setTimeout(function (a) {
+          QRBox.fadeOut(300, function (argument) {
+            MainBox.removeClass('hideQR');
+          });
+          $('#DonateText,#donateBox,#github').removeClass('blur');
+        }, 600);
+
+      });
+    });
+  </script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script>
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+<script>
+!function (e, t, a) {
+  var initCopyCode = function(){
+    var copyHtml = '';
+    copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+    copyHtml += '  <i class="fa fa-clipboard"></i><span>复制</span>';
+    copyHtml += '</button>';
+    $(".highlight .code pre").before(copyHtml);
+    new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+  }
+  initCopyCode();
+}(window, document);
+</script>  
+  
+
+<script>
+  var btntop = $('#gotop');
+  btntop.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, '300');
+  });
+
+  var $table = $('.content table').not($('figure.highlight > table'))
+$table.each(function () {
+  $(this).wrap('<div class="table-wrap"></div>')
+})
+</script>
+
+
+
+</html>

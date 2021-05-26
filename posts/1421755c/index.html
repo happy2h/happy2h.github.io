@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <meta name="author" content="Nick XIE">
+  
+  
+  
+  
+  
+    <link rel="alternate" href="/atom.xml " title="NickXIE&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <title>2021-03-22-Labiew连接mysql写入和读取连续数据 | NickXIE&#39;s Blog</title>
+
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="/css/style.css" >
+  <link rel="stylesheet" href="/css/partial/dark.css" >
+
+  
+  
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/partial/highlight/atom-one-light.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/a2396837/CDN@latest/css/iconfont.css">
+    
+  
+
+  
+    <script src="/js/todark.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+</html>
+    
+<div class="nav index" style="height: 60px;">
+    <div class="title animated fadeInDown">
+        <div class="layui-container">
+                <div class="nav-title"><a href="/" title="NickXIE&#39;s Blog">NickXIE&#39;s Blog</a></div>
+            <div class="nav-list">
+                <button> <span class=""></span><span style="display: block;"></span><span class=""></span> </button>
+                <ul class="layui-nav" lay-filter="">
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/search/ ">
+                            <i class=" fas fa-search-plus " style="color: rgb(3 169 244);"></i>
+                            <span class="layui-nav-item-name">搜索</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/ ">
+                            <i class=" fab fa-fort-awesome " style="color: rgb(255 107 107);"></i>
+                            <span class="layui-nav-item-name">首页</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/archives/ ">
+                            <i class=" fas fa-archive " style="color: rgb(10 189 227);"></i>
+                            <span class="layui-nav-item-name">归档</span>
+                        </a>
+                    </li>
+                    
+                        
+                        
+                        
+                        
+                    <li class="layui-nav-item">
+                        <a href="/tags/ ">
+                            <i class=" fas fa-hashtag " style="color: rgb(254 202 87);"></i>
+                            <span class="layui-nav-item-name">标签</span>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="layui-nav-item" id="btn-toggle-dark">🌙</li>
+                    
+                    <span class="layui-nav-bar" style="left: 342px; top: 78px; width: 0px; opacity: 0;"></span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<header class="header">
+        
+            <div class="logo">
+                    <a href="/"><img src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/avator_new.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></a>
+            </div>
+         
+    </div>
+     
+    
+            <div class="social">
+                
+                        <a class="social-icon" href="https://github.com/happy2h" target="_blank" title="Github">
+                            <i class="iconfont icon-GitHub" aria-hidden="true"></i>
+                          </a>
+                 
+                        <a class="social-icon" href="mailto:893956235@qq.com" target="_blank" title="Email">
+                            <i class="iconfont icon-email" aria-hidden="true"></i>
+                          </a>
+                 
+                        <a class="social-icon" href="https://space.bilibili.com/69568635" target="_blank" title="Bilibili">
+                            <i class="iconfont icon-bilibili" aria-hidden="true"></i>
+                          </a>
+                 
+            </div>
+     
+</header>
+
+    
+<article id="post">
+  <div class="post-title">2021-03-22-Labiew连接mysql写入和读取连续数据</div>
+  
+<div class="post-meta">
+    
+    
+      <div class="post-meta-item date">
+        <span title="发表于 2021.03.22"><i class="far fa-calendar-alt"></i> 2021.03.22</span>
+      </div>
+      <div class="post-meta-item updated">
+        <span title="更新于 2021.05.26"><i class="far fa-calendar-check"></i> 2021.05.26</span>
+      </div>
+     
+    
+      <div class="post-meta-item categories">
+        
+          <i class="fas fa-inbox article-meta__icon"></i> <a href="/categories/Labview%E4%BB%BF%E7%9C%9F/">Labview仿真</a>
+        
+      </div>
+     
+    
+</div>
+
+
+  
+  <div class="content">
+        <div><h2 id="将labview连续数据保存到mysql数据库"><a href="#将labview连续数据保存到mysql数据库" class="headerlink" title="将labview连续数据保存到mysql数据库"></a>将labview连续数据保存到mysql数据库</h2><p>这一篇是在之前完成Labview和mysql连接，并且进行了简单的CRUD删除的基础上来的。我们一般不会拿Labview来做学生这种数据管理系统，而是对于基本传感器数据的采集和保存，而传感器采集数据会根据设备设置的采样频率有关，所以往往需要将连续的采集的数据保存到MySQL数据库里面。好了，废话少说，直接开始。</p>
+<ol>
+<li><p>首先在数据库里建一个表，保存传感器的数据，这里我用随机数生成进行代替，实际采集的数据也可以进行同样的操作。先建一个data_coll表，设置主键为data_id，属性设置为自增。如图：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322231124329.png" alt="image-20210322231124329"></p>
+</li>
+</ol>
+<p>time_stamp为时间，data为存入的double型数据。</p>
+<ol>
+<li><p>在Labview编写测试vi，如图</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322232354403.png" alt="image-20210322232354403"></p>
+</li>
+</ol>
+<p>首先用DB tool open connection打开数据库udl文件，这里上次讲过，略过。选择DB tools Insert data vi。这个vi会要求设置表名和对应的表中的列，因为已经设置id为自增，所以不用插入id，选择表名为data_coll，表的列为time_stamp和data，作为数据的保存。上面是获取当前系统时间（按秒）和DBtools里的时间格式化vi，作为时间列的量。使用随机数产生数据，模拟传感器采集的数据。</p>
+<p>运行的结果，如果你不停止运行，就会一直往里面存入数据。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322233026113.png" alt="image-20210322233026113" style="zoom:50%;" /></p>
+<p>数据之所以显示为0，是因为我设置的data为double型，长度为255，所以生成的数很小，看起来是0，其实待会读数据就会发现其实不是0。</p>
+<p>因为要匹配传感器的采样频率，所以要设置采样的间隔，这里加上labview自带的定时vi，如图：可以在左上角的dt设置采样间隔20ms来匹配频率。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322233337797.png" alt="image-20210322233337797" style="zoom:67%;" /></p>
+<h2 id="Labview读取数据并画出图形"><a href="#Labview读取数据并画出图形" class="headerlink" title="Labview读取数据并画出图形"></a>Labview读取数据并画出图形</h2><p>相较于存数据，读取数据并展示就要复杂一点了，直接给出相应的背面板，再来进行讲解：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322232053018.png" alt="image-20210322232053018"></p>
+<p>数据库连接还是一样的道理，要读的数据仅仅是我们之前存的data这一列，所以我们DB tools用select data vi，在这个vi下指定相应的表和要读取的列，我设置的就是之前data_coll表和data列。因为读出的数据会是一个变体，不能直接用数据进行展示，所以加一个变体转换为数据，将我们读取的数据转换为一个数组常量，读取出来的变体维度为两维，有一个维度的数据是id，我们不需要，只取data。在变体的指定数据类型输入，添加一个二维数组常量，然后使用数组索引，索引二维数组的第一列即我们的data这一列。读出到数组数据，显示就好办了，加入一个波形图标即可。</p>
+<p>点击运行，效果如图：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322234331876.png" alt="image-20210322234331876" style="zoom:67%;" /></p>
+<p>会把数据库的所有数据读出来，这个vi同样也可以嵌套定时模块，一样的原理，当要用数据作为控制信号给入时，就得加如定时，不能一次给所有数据。</p>
+</div>
+        
+          <div class="post-copyright">
+                  <div class="copyright-item">
+                      <span> 作者: Nick XIE</span>
+                  </div>
+                  <div class="copyright-item">
+                      <span> 链接: <a href="https://happy2h.top/posts/1421755c/">https://happy2h.top/posts/1421755c/</a></span>
+                  </div>
+                  <div class="copyright-item">
+                      <span> 声明: 本博客所有文章除特别声明外，均采用许可协议 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> 转载请注明出处！</span>
+                  </div>
+          </div>
+        
+  </div>
+
+  <div class="share-reward">
+    <div class="share">
+        
+
+      </div>
+        <div class="reward">
+          
+  <div style="padding: 10px 0; margin-left: 20px; width: 90%; text-align: center;">
+    <div class="reward-content">
+        <ul id="donateBox" class="list pos-a">
+           
+          
+            <li id="AliPay" title="支付宝"><img data-img="/img/alipay.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></img></li>
+               
+                 
+            <li id="WeChat" title="微信"><img date-img="/img/wechat.jpg" onerror=this.onerror=null,this.src="/img/loading.gif"></img></li>
+                      
+          </ul>
+        <div id="QRBox" class="pos-f left-100">
+          <div id="MainBox"></div>
+        </div>
+    </div>
+  </div>
+  
+        </div>
+    </div>
+    
+    <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/LabVIEW/" class="tag">LabVIEW</a>
+      
+        <i class="fas fa-tag"></i> <a href="/tags/mysql/" class="tag">mysql</a>
+      
+    </div>
+    <div class="post-nav">
+      
+        <div class="post-nav-prev post-nav-item">
+            <a href="/posts/eabb9c05/" >Labview查询mysql数据库展示数据<i class="fa fa-chevron-left"></i></a>
+        </div>
+      
+      
+        <div class="post-nav-next post-nav-item">
+            <a href="/posts/11463ecb/" >2021-03-15-labview连接mysql<i class="fa fa-chevron-right"></i></a>
+        </div>
+      
+    </div>
+      
+
+
+
+
+</article>
+
+    
+<a id="gotop" href="javascript:" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    
+
+
+
+
+
+
+    
+<div id="bottom-outer">
+    <div id="bottom-inner">
+        © 2020 <i class="fa fa-heart" id="heart"></i> Nick XIE 
+        <br>
+        Powered by 
+        <a target="_blank" rel="noopener" href="http://hexo.io">hexo</a> | Theme is <a target="_blank" rel="noopener" href="https://github.com/a2396837/hexo-theme-blank/">blank</a>
+        
+    </div>  
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.min.js"></script>
+
+
+
+  
+    <script src="/js/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  
+
+ 
+
+  <script src="/js/local-search.js"></script>
+<script type="text/javascript">      
+  var search_path = "search.xml";
+if (search_path.length == 0) {
+  search_path = "search.xml";
+}
+var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+  
+
+
+  <script>
+    window.lazyLoadOptions = {
+      elements_selector: 'img',
+      threshold: 0
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script>   
+  
+
+
+  <script>
+    var images = $('img').not('.nav-logo img').not('.card img').not($('a>img')).not('.reward-content img')
+    images.each(function (i, o) {
+      var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
+      $(o).wrap(`<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${$(o).attr('alt')}" class="fancybox"></a>`)
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+  <script>
+        $().fancybox({
+      selector: '[data-fancybox]',
+      loop: true,
+      transitionEffect: 'slide',
+      protect: true,
+      buttons: ['slideShow', 'fullScreen', 'thumbs', 'close']
+    })
+  </script>   
+  
+
+
+  <script>
+  if (!window.MathJax) {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]],
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+              const display = !!node.type.match(/; *mode=display/)
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+              const text = document.createTextNode('')
+              node.parentNode.replaceChild(text, node)
+              math.start = {node: text, delim: '', n: 0}
+              math.end = {node: text, delim: '', n: 0}
+              doc.math.push(math)
+            }
+          }, '']
+        }
+      }
+    }
+    
+    var script = document.createElement('script')
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"
+    script.id = 'MathJax-script'
+    script.async = true
+    document.head.appendChild(script)
+  } else {
+    MathJax.startup.document.state(0)
+    MathJax.texReset()
+    MathJax.typeset()
+  }
+  </script>
+  
+
+
+
+
+  <script>
+    jQuery(document).ready(function () {
+      var QRBox = $('#QRBox');
+      var MainBox = $('#MainBox');
+      var AliPayQR = '/img/alipay.jpg';
+      var WeChanQR = '/img/wechat.jpg';
+
+      function showQR(QR) {
+        if (QR) {
+          MainBox.css('background-image', 'url(' + QR + ')');
+        }
+        $('#donateBox').addClass('blur');
+        QRBox.fadeIn(300, function (argument) {
+          MainBox.addClass('showQR');
+        });
+      }
+
+      $('#donateBox>li').click(function (event) {
+        var thisID = $(this).attr('id');
+        if (thisID === 'AliPay') {
+          showQR(AliPayQR);
+        } else if (thisID === 'WeChat') {
+          showQR(WeChanQR);
+        }
+      });
+
+      MainBox.click(function (event) {
+        MainBox.removeClass('showQR').addClass('hideQR');
+        setTimeout(function (a) {
+          QRBox.fadeOut(300, function (argument) {
+            MainBox.removeClass('hideQR');
+          });
+          $('#DonateText,#donateBox,#github').removeClass('blur');
+        }, 600);
+
+      });
+    });
+  </script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script>
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js"></script>
+<script>
+!function (e, t, a) {
+  var initCopyCode = function(){
+    var copyHtml = '';
+    copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+    copyHtml += '  <i class="fa fa-clipboard"></i><span>复制</span>';
+    copyHtml += '</button>';
+    $(".highlight .code pre").before(copyHtml);
+    new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+  }
+  initCopyCode();
+}(window, document);
+</script>  
+  
+
+<script>
+  var btntop = $('#gotop');
+  btntop.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, '300');
+  });
+
+  var $table = $('.content table').not($('figure.highlight > table'))
+$table.each(function () {
+  $(this).wrap('<div class="table-wrap"></div>')
+})
+</script>
+
+
+
+</html>
