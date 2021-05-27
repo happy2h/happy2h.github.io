@@ -155,9 +155,15 @@
         <span title="发表于 2021.05.26"><i class="far fa-calendar-alt"></i> 2021.05.26</span>
       </div>
       <div class="post-meta-item updated">
-        <span title="更新于 2021.05.26"><i class="far fa-calendar-check"></i> 2021.05.26</span>
+        <span title="更新于 2021.05.27"><i class="far fa-calendar-check"></i> 2021.05.27</span>
       </div>
      
+    
+      <div class="post-meta-item categories">
+        
+          <i class="fas fa-inbox article-meta__icon"></i> <a href="/categories/%E5%8D%9A%E5%AE%A2bug%E8%A7%A3%E5%86%B3/">博客bug解决</a>
+        
+      </div>
      
     
 </div>
@@ -165,7 +171,12 @@
 
   
   <div class="content">
-        <div></div>
+        <div><p>对于多行latex公式来说hexo中自带的渲染模板会导致样式出错，解决方法就是采用新的渲染插件。<br><span id="more"></span></p>
+<h3 id="使用Kramed代替Marked"><a href="#使用Kramed代替Marked" class="headerlink" title="使用Kramed代替Marked"></a>使用Kramed代替Marked</h3><p>hexo默认的渲染引擎是marked，但是marked不支持mathjax。kramed是在marked的基础上进行修改。我们在工程目录下执行以下命令来安装kramed，代码如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>然后，更改博客目录/node_modules/hexo-renderer-kramed/lib/renderer.js。将以下代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Fit kramed&#x27;s rule: $$ + \1 + $$</span></span><br><span class="line">    <span class="keyword">return</span> text.replace(<span class="regexp">/`\$(.*?)\$`/g</span>, <span class="string">&#x27;$$$$$1$$$$&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>改为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Change inline math rule</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="将hexo-math替换为hexo-renderer-mathjax"><a href="#将hexo-math替换为hexo-renderer-mathjax" class="headerlink" title="将hexo-math替换为hexo-renderer-mathjax"></a>将hexo-math替换为hexo-renderer-mathjax</h3><p>首先卸载hexo-math:<code>npm un hexo-math</code>。然后执行<code>npm in hexo-renderer-mathjax --save</code>。</p>
+<h3 id="更改转义规则"><a href="#更改转义规则" class="headerlink" title="更改转义规则"></a>更改转义规则</h3><p>因为hexo默认的转义规则会将一些字符进行转义，比如 _ 转为 <code>&lt;em&gt;</code>, 所以我们需要对默认的规则进行修改.<br>首先， 打开博客目录/node_modules/kramed/lib/rules/inline.js，把<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure><br>改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure><br>和把<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure><br>改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure></p>
+<p>最后在相应博客的markdown文件的元数据下开启mathjax：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">mathjax：true</span></span><br></pre></td></tr></table></figure><br>即可正常显示多行公式。</p>
+</div>
         
           <div class="post-copyright">
                   <div class="copyright-item">
@@ -209,6 +220,8 @@
     </div>
     
     <div class="post_tags">
+      
+        <i class="fas fa-tag"></i> <a href="/tags/hexo%E3%80%81mathjax/" class="tag">hexo、mathjax</a>
       
     </div>
     <div class="post-nav">
