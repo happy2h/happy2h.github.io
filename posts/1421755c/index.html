@@ -176,7 +176,8 @@
       </div>
     
   <div class="content">
-        <div><h2 id="将labview连续数据保存到mysql数据库"><a href="#将labview连续数据保存到mysql数据库" class="headerlink" title="将labview连续数据保存到mysql数据库"></a>将labview连续数据保存到mysql数据库</h2><p>这一篇是在之前完成Labview和mysql连接，并且进行了简单的CRUD删除的基础上来的。我们一般不会拿Labview来做学生这种数据管理系统，而是对于基本传感器数据的采集和保存，而传感器采集数据会根据设备设置的采样频率有关，所以往往需要将连续的采集的数据保存到MySQL数据库里面。好了，废话少说，直接开始。</p>
+        <div><p>labview连接数据库写入数据进行储存。<br><span id="more"></span></p>
+<h2 id="将labview连续数据保存到mysql数据库"><a href="#将labview连续数据保存到mysql数据库" class="headerlink" title="将labview连续数据保存到mysql数据库"></a>将labview连续数据保存到mysql数据库</h2><p>这一篇是在之前完成Labview和mysql连接，并且进行了简单的CRUD删除的基础上来的。我们一般不会拿Labview来做学生这种数据管理系统，而是对于基本传感器数据的采集和保存，而传感器采集数据会根据设备设置的采样频率有关，所以往往需要将连续的采集的数据保存到MySQL数据库里面。好了，废话少说，直接开始。</p>
 <ol>
 <li><p>首先在数据库里建一个表，保存传感器的数据，这里我用随机数生成进行代替，实际采集的数据也可以进行同样的操作。先建一个data_coll表，设置主键为data_id，属性设置为自增。如图：</p>
 <p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/happy2h/picpool/img/image-20210322231124329.png" alt="image-20210322231124329"></p>
