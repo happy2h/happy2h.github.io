@@ -1,1 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on fx2h's blog</title><link>https://happy2h.github.io/posts/</link><description>Recent content in Posts on fx2h's blog</description><generator>Hugo -- 0.153.3</generator><language>en-us</language><lastBuildDate>Mon, 29 Dec 2025 21:31:15 +0800</lastBuildDate><atom:link href="https://happy2h.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Test</title><link>https://happy2h.github.io/posts/test/</link><pubDate>Mon, 29 Dec 2025 21:31:15 +0800</pubDate><guid>https://happy2h.github.io/posts/test/</guid><description>&lt;p&gt;测试测试&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on fx2h's blog</title><link>https://happy2h.github.io/posts/</link><description>Recent content in Posts on fx2h's blog</description><generator>Hugo -- 0.153.3</generator><language>en-us</language><lastBuildDate>Mon, 29 Dec 2025 22:21:27 +0800</lastBuildDate><atom:link href="https://happy2h.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>安装ArchLinux及必要配置</title><link>https://happy2h.github.io/posts/%E5%AE%89%E8%A3%85archlinux/</link><pubDate>Mon, 29 Dec 2025 22:21:27 +0800</pubDate><guid>https://happy2h.github.io/posts/%E5%AE%89%E8%A3%85archlinux/</guid><description>&lt;h1 id="arch-linux安装"&gt;Arch Linux安装&lt;/h1&gt;
+&lt;h2 id="使用archinstall脚本进行安装"&gt;使用archinstall脚本进行安装&lt;/h2&gt;
+&lt;p&gt;如果你有一块磁盘单独安装Arch Linux操作系统，可以直接使用archinstall脚本进行安装，具体配置可以参考这篇&lt;a href="https://zhuanlan.zhihu.com/p/25308291469"&gt;博客&lt;/a&gt;。这里提一下需要注意的点：&lt;/p&gt;
+&lt;p&gt;archinstall脚本由于国内网络原因执行可能会一直卡在&lt;code&gt;fetch arch linux packages database&lt;/code&gt;，这个时候需要调整下配置。&lt;/p&gt;
+&lt;p&gt;测试能否 ping 通公网，先按&lt;code&gt;Ctrl + C&lt;/code&gt;退出archinstall，然后输入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ping -c &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt; archlinux.org
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果报错&lt;code&gt;Temporary failure in name resolution&lt;/code&gt;则DNS有问题；如果ping不通检查网络；如果可以ping通但是archinstall执行卡需要调整镜像。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DNS问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;nameserver 223.5.5.5&amp;#34;&lt;/span&gt; &amp;gt; /etc/resolv.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#34;nameserver 8.8.8.8&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/resolv.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;网络问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;执行&lt;code&gt;iwctl&lt;/code&gt;检查网络是否连接，&lt;strong&gt;注意wifi名称不要有中文&lt;/strong&gt;。进入后执行查看网络连接：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;device list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;station wlan0 show
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;镜像源问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;手动更新镜像源列表&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;reflector --country China --latest &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; --sort rate --save /etc/pacman.d/mirrorlist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试pacman，如果测试成功archinstall就可以执行。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Sy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;最后检查时间问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;timedatectl set-ntp true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;timedatectl status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其他磁盘分区和引导的问题参考源blog就行，对了桌面一定要选Gnome，伟大无需多言。&lt;/p&gt;
+&lt;h2 id="自定义安装"&gt;自定义安装&lt;/h2&gt;
+&lt;p&gt;如果只有一个磁盘但是需要双系统，推荐参考视频&lt;a href="https://www.youtube.com/watch?v=1J_Z_pzzbMo"&gt;链接&lt;/a&gt;自已安装，其实我也没有尝试过。&lt;/p&gt;
+&lt;h1 id="必要软件安装"&gt;必要软件安装&lt;/h1&gt;
+&lt;h2 id="换源"&gt;换源&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo nano /etc/pacman.d/mirrorlist
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.jlu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.aliyun.com/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.wsyu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.jlu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.hit.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirror.nyist.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.wsyu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.hust.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; https://mirror.nyist.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Server &lt;span style="color:#f92672"&gt;=&lt;/span&gt; http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加非官方源&lt;code&gt;sudo nano /etc/pacman.conf&lt;/code&gt;，把[extra]和[multilib]这个取消注释（删除#）,&lt;code&gt;ctrl + O&lt;/code&gt;保存，&lt;code&gt;ctrl + X&lt;/code&gt;退出。&lt;/p&gt;</description></item></channel></rss>
