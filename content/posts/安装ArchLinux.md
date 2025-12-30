@@ -9,6 +9,8 @@ tags:
 title: '安装ArchLinux及必要配置'
 ---
 
+[TOC]
+
 # Arch Linux安装
 
 ## 使用archinstall脚本进行安装
@@ -201,7 +203,7 @@ yay -S google-chrome
 
 ## Gnome插件
 
-访问Gnorme插件[网址](https://extensions.gnome.org/)会让你下载一个浏览器插件，安装即可。然后再终端中安装gnome-shell插件
+访问Gnorme插件[网址](https://extensions.gnome.org/)会让你下载一个浏览器插件，安装即可。然后再终端中安装gnome插件
 
 ```bash
 pacman -Sy gnome-browser-connector
@@ -212,9 +214,9 @@ pacman -Sy gnome-browser-connector
 - AppIndicator and KStatusNotifierItem Suppor：后台运行应用放到状态栏
 - Blur my Shell：美化插件
 - Clipboard Indicator：剪切板插件，类似与Dito
-- Dash to dock：gnome的dock默认在应用页面，这个插件把dock‘放到桌面
+- Dash to dock：gnome的dock默认在应用页面，这个插件把dock放到桌面
 - Desktop Icons NG：桌面快捷方式
-- PSystem Monitor：查看cpu，内存，上传下载速度
+- System Monitor：查看cpu，内存，上传下载速度
 - User Themes：美化插件
 
 大致的软件就装到这里，大家可以去wallheaven上找一个喜欢的壁纸换上，相信你会喜欢上Linux和arch。
