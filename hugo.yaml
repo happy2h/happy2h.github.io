@@ -3,7 +3,28 @@ languageCode: en-us
 title: fx2h's blog
 theme: ["PaperMod"]
 canonifyURLs: false
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
 params:
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10
+    keys: ["title", "permalink", "summary", "content"]
+
+  env: production
   defaultTheme: auto
   ShowCodeCopyButtons: true
   ShowShareButtons: true
@@ -28,3 +49,17 @@ outputs:
     - HTML
     - RSS
     - JSON
+menu:
+  main:
+    - identifier: categories
+      name: archives
+      url: /archives/
+      weight: 10
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 10
+    - identifier: 
+      name: tags
+      url: /tags/
+      weight: 20
