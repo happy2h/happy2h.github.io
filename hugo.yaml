@@ -8,9 +8,9 @@ params:
   ShowShareButtons: true
   ShowReadingTime: true
   homeInfoParams:
-    Title: Hi there wave
+    Title: 你来啦😄
     Content: stay hungry, stay foolish
-  socialIcons: # optional
+  socialIcons:
     - name: "Github"
       url: "https://github.com/happy2h"
 taxonomies:
