@@ -1,6 +1,7 @@
 ---
 date: '2025-12-29T22:21:27+08:00'
 draft: false
+ShowToc: true
 categories: 
 - Linux
 tags: 
@@ -9,7 +10,7 @@ tags:
 title: '安装ArchLinux及必要配置'
 ---
 
-[TOC]
+
 
 # Arch Linux安装
 

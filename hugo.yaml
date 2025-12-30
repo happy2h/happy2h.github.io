@@ -4,9 +4,15 @@ title: fx2h's blog
 theme: ["PaperMod"]
 canonifyURLs: false
 params:
-  contact:
-    email: fx2h@qq.com
-  subtitle: stay hungry, stay foolish
+  ShowCodeCopyButtons: true
+  ShowShareButtons: true
+  ShowReadingTime: true
+  homeInfoParams:
+    Title: Hi there wave
+    Content: stay hungry, stay foolish
+  socialIcons: # optional
+    - name: "Github"
+      url: "https://github.com/happy2h"
 taxonomies:
   category: categories
   tag: tags
@@ -16,3 +22,8 @@ markup:
     endLevel: 3
     ordered: false
     startLevel: 2
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
