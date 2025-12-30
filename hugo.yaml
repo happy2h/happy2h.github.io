@@ -4,6 +4,7 @@ title: fx2h's blog
 theme: ["PaperMod"]
 canonifyURLs: false
 params:
+  defaultTheme: auto
   ShowCodeCopyButtons: true
   ShowShareButtons: true
   ShowReadingTime: true
