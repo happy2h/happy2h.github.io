@@ -221,3 +221,13 @@ pacman -Sy gnome-browser-connector
 - User Themes：美化插件
 
 大致的软件就装到这里，大家可以去wallheaven上找一个喜欢的壁纸换上，相信你会喜欢上Linux和arch。
+
+## 修改终端快捷键
+
+之前用ubuntu的时候，默认使用`ctrl + alt + t`打开终端，现在给arch也设置同样的快捷键。
+
+打开设置（setting）- 键盘（Keyboard）- 键盘快捷键（Keyboard Shortcuts）- 查看和自定义快捷键（View and Customize Shortcuts）然后自定义快捷键（Customs Shortcuts）：
+
+- name：命名为console
+- comman：kgx（这个是GNOME console的启动命令）
+- shortcut：Ctrl + Alt + T
